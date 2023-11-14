@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cro7fr7rs1521"]
+
+[ext_resource type="Script" path="res://Scenes/Enemies/OrangeTree.gd" id="1_km3tm"]
+[ext_resource type="Texture2D" uid="uid://cj50ew43ha6ru" path="res://Assets/Enviroment/Props/treeBrown_large.png" id="2_i86fl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfclw"]
+size = Vector2(29, 30)
+
+[node name="OrangeTree" type="PathFollow2D"]
+script = ExtResource("1_km3tm")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
+scale = Vector2(0.613281, 0.613281)
+texture = ExtResource("2_i86fl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_pfclw")
