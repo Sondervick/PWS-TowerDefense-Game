@@ -1,0 +1,18 @@
+CHANGED:
+	File Manager
+	Project Settings:
+		Running the SceneHandler on game start
+		Window (1920x1080)
+		Window auto resize
+
+ADDITIONS:
+	Added temporary assets:
+		Top-Down Tanks Redux:
+			TileMap
+			Props
+	
+	Map Scene:
+		Background made & visual path
+		Auto terain set up
+		PATH made
+		Enemies do not spawn yet, nor have been created
