@@ -34,7 +34,7 @@ func start_next_wave():
 func retrieve_wave_data():
 	# Hard coding the wave data, nesting 2 arrays
 	# First is the enemy type, second is the time between spawns
-	var wave_data = [["OrangeTree", 0.7], ["OrangeTree", 0.1]]
+	var wave_data = [["OrangeTree", 0.7], ["OrangeTree", 0.3], ["GreenTree", 0.4], ["OrangeTree", 0.2]]
 	current_wave += 1
 	# Getting the amount of enemies per wave, this is done by looking at the array size
 	enemies_in_wave = wave_data.size()
