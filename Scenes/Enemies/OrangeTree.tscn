@@ -7,6 +7,7 @@
 size = Vector2(29, 30)
 
 [node name="OrangeTree" type="PathFollow2D"]
+loop = false
 script = ExtResource("1_km3tm")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]

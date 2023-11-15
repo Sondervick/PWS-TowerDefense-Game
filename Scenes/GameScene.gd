@@ -46,7 +46,7 @@ func spawn_enemies(wave_data):
 		# Load a new enemy scene from the Scenes/Enemies folder
 		# Get the name of the enemy from the Array (the name of the enemy is at place 0 in the array)
 		# Add the .tscn file extension
-		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instance()
+		var new_enemy = load("res://Scenes/Enemies/OrangeTree.tscn").instantiate()
 		# Add the new_enemy to the Path as a child, 
 		# also give it a human readable name (true).
 		map_node.get_node("Path").add_child(new_enemy, true)

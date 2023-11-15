@@ -1,6 +1,7 @@
 extends PathFollow2D
 
 var speed = 150
+var health = 100
 
 # _physics_process is automatically called every 1/60th of a second
 func _physics_process(delta):
@@ -13,3 +14,4 @@ func move(delta):
 		# + the speed
 		# * the delta (the time it took since the last time this function ran)
 	set_progress(get_progress() + speed * delta)
+	
