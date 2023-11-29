@@ -1,3 +1,9 @@
-[gd_scene format=3 uid="uid://dvpnn3ivitach"]
+[gd_scene load_steps=3 format=3 uid="uid://dvpnn3ivitach"]
+
+[ext_resource type="Script" path="res://Scenes/scene_handler.gd" id="1_uxgvw"]
+[ext_resource type="PackedScene" uid="uid://61500sv5tjin" path="res://Scenes/UIScenes/main_menu.tscn" id="2_3xh3g"]
 
 [node name="SceneHandler" type="Node"]
+script = ExtResource("1_uxgvw")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_3xh3g")]
