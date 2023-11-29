@@ -1,7 +1,7 @@
 extends PathFollow2D
 
-var speed = 100
-var health = 100
+var speed = 10
+var health = -1
 
 # _physics_process is automatically called every 1/60th of a second
 func _physics_process(delta):

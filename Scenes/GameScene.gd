@@ -34,7 +34,7 @@ func start_next_wave():
 func retrieve_wave_data():
 	# Hard coding the wave data, nesting 2 arrays
 	# First is the enemy type, second is the time between spawns
-	var wave_data = [["OrangeTree", 0.7], ["OrangeTree", 0.3], ["GreenTree", 0.4], ["OrangeTree", 0.2]]
+	var wave_data = [[getRandomEnemy(), 0.7], [getRandomEnemy(), 0.3], [getRandomEnemy(), 0.4], [getRandomEnemy(), 0.2], [getRandomEnemy(), 0.1]]
 	current_wave += 1
 	# Getting the amount of enemies per wave, this is done by looking at the array size
 	enemies_in_wave = wave_data.size()
@@ -53,5 +53,20 @@ func spawn_enemies(wave_data):
 		# Wait the amount of seconds between spawning another enemy.
 		# Wait time is defined in the second argument of the array i[1], not i[2]!!
 		await(get_tree().create_timer(i[1])).timeout
+		
+
+func getRandomEnemy():
+	#Make a random int (whole number) between 1 and 3
+	var randomTower = randi_range(1,3)
+	#Initializing the tower name variable
+	var towerName = null
 	
+	#If... then name...
+	if randomTower == 1:
+		towerName = "OrangeTree"
+	if randomTower == 2:
+		towerName = "GreenTree"
+	if randomTower == 3:
+		towerName = "EnemySexyMf"
+	return towerName
 
