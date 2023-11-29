@@ -53,6 +53,11 @@ func _unhandled_input(event):
 #
 
 func initiateBuildMode(tower_type):
+	#If the user is already in build mode
+	if build_mode:
+		#Cancel it, you cant be in build mode multiple times
+		cancelBuildMode()
+	
 	#Sets the build_type variable to the tower_type, and appends "_tier_1"
 	#You always build a tier 1 tower, so you can append this
 	build_type = tower_type + "_tier_1"
@@ -110,8 +115,9 @@ func cancelBuildMode():
 	#Resetting the variables
 	build_mode = false
 	build_valid = true
-	#Then remove TowerPreview node
-	get_node("UI/TowerPreview").queue_free()
+	#Then remove TowerPreview node (on this frame)
+	#queue_free() will do it on the next available frame.
+	get_node("UI/TowerPreview").free()
 
 func verifyAndBuild():
 	#If the build is on a valid place
