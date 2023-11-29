@@ -47,3 +47,42 @@ func updateTowerPreview(new_pos, color):
 		#Set the DragTower color to the given color
 		get_node("TowerPreview/DragTower").modulate = Color(color)
 		get_node("TowerPreview/Sprite2D").modulate = Color(color)
+
+#
+# Game Control function
+#
+
+func _on_pause_play_pressed():
+	#If build mode is enabled
+	if get_parent().build_mode:
+		#cancel build mode.
+		get_parent().cancelBuildMode()
+	
+	#Getting wether the game is paused
+	if get_tree().is_paused():
+		#If it is, unpause
+		get_tree().paused = false
+	#If the current wave is 0, aka no waves have started yet
+	elif get_parent().current_wave == 0:
+		#Add 1 to the wave counter
+		get_parent().current_wave =+ 1
+		#Start new wave
+		get_parent().start_next_wave()
+	else:
+		#If it isn't, pause
+		get_tree().paused = true
+
+
+func _on_speed_up_pressed():
+	#If build mode is enabled
+	if get_parent().build_mode:
+		#cancel build mode.
+		get_parent().cancelBuildMode()
+	
+	#If the game speed is 200%
+	if Engine.get_time_scale() == 2.0:
+		#Set game speed back to original (100%)
+		Engine.set_time_scale(1.0)
+	else:
+		#Speed up the game to 200%
+		Engine.set_time_scale(2.0)

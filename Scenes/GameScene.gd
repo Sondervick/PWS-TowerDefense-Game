@@ -22,9 +22,6 @@ func _ready():
 		#Connects the button to the initiateBuildMode script which requires a tower type.
 		#i.get_name() gets the name of the node object. (example: Gun, Missile)
 		i.pressed.connect(initiateBuildMode.bind(i.name))
-	
-	# Call the start_next_wave function on game startup
-	start_next_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
