@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://d3o80tyx6lyn6"]
+[gd_scene load_steps=7 format=3 uid="uid://d3o80tyx6lyn6"]
 
 [ext_resource type="PackedScene" uid="uid://dtscb01h0dspd" path="res://Scenes/Maps/Map1.tscn" id="1_1pww6"]
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_evaqv"]
+[ext_resource type="Script" path="res://Scenes/UI.gd" id="3_7xx70"]
 [ext_resource type="Texture2D" uid="uid://bh8rs8o7ylcti" path="res://Assets/UI/Buttons/blue_button12.png" id="3_66iv5"]
 [ext_resource type="Texture2D" uid="uid://c3157da4uwt4m" path="res://Assets/Towers/towerDefense_tile249.png" id="4_scrtf"]
 [ext_resource type="Texture2D" uid="uid://c1rcipllvpvot" path="res://Assets/Towers/towerDefense_tile251.png" id="5_x8c8l"]
@@ -12,6 +13,7 @@ script = ExtResource("1_evaqv")
 [node name="Map1" parent="." instance=ExtResource("1_1pww6")]
 
 [node name="UI" type="CanvasLayer" parent="."]
+script = ExtResource("3_7xx70")
 
 [node name="HUD" type="Control" parent="UI"]
 layout_mode = 3
@@ -20,6 +22,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BuildMenu" type="VBoxContainer" parent="UI/HUD"]
 custom_minimum_size = Vector2(100, 456)
@@ -32,7 +35,7 @@ offset_bottom = 512.0
 grow_horizontal = 0
 theme_override_constants/separation = 25
 
-[node name="Gun" type="TextureButton" parent="UI/HUD/BuildMenu"]
+[node name="gun" type="TextureButton" parent="UI/HUD/BuildMenu" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -40,7 +43,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("3_66iv5")
 stretch_mode = 0
 
-[node name="Icon" type="TextureRect" parent="UI/HUD/BuildMenu/Gun"]
+[node name="Icon" type="TextureRect" parent="UI/HUD/BuildMenu/gun"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -49,7 +52,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_scrtf")
 
-[node name="Missile" type="TextureButton" parent="UI/HUD/BuildMenu"]
+[node name="missile" type="TextureButton" parent="UI/HUD/BuildMenu" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -57,7 +60,7 @@ size_flags_vertical = 4
 texture_normal = ExtResource("3_66iv5")
 stretch_mode = 0
 
-[node name="Icon" type="TextureRect" parent="UI/HUD/BuildMenu/Missile"]
+[node name="Icon" type="TextureRect" parent="UI/HUD/BuildMenu/missile"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

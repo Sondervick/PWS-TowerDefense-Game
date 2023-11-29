@@ -16,8 +16,8 @@ texture = ExtResource("2_xvxaq")
 
 [node name="Missile1" type="Sprite2D" parent="Turret"]
 texture = ExtResource("3_m2c1i")
-offset = Vector2(5, -10)
+offset = Vector2(5, 12)
 
 [node name="Missile2" type="Sprite2D" parent="Turret"]
-position = Vector2(5, 10)
 texture = ExtResource("3_m2c1i")
+offset = Vector2(5, -12)

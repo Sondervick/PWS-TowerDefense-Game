@@ -2,6 +2,12 @@ extends Node2D
 
 # Creating various variables
 var map_node
+
+var build_mode = false
+var build_valid = false
+var build_location
+var build_type
+
 var current_wave = 0
 var enemies_in_wave = 0
 
@@ -10,13 +16,112 @@ func _ready():
 	# Setting the map_node variable to the name of the first map
 	# Later this should switch automatically, when switching maps
 	map_node = get_node("Map1")
+	
+	#Gets all the buttons in the "build_buttons" group.
+	for i in get_tree().get_nodes_in_group("build_buttons"):
+		#Connects the button to the initiateBuildMode script which requires a tower type.
+		#i.get_name() gets the name of the node object. (example: Gun, Missile)
+		i.pressed.connect(initiateBuildMode.bind(i.name))
+	
 	# Call the start_next_wave function on game startup
 	start_next_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	#If build_mode is set to true
+	if build_mode:
+		#Run updateTowerPreview func
+		updateTowerPreview()
+
+#Only runs when any input given is not already being consumed by the UI
+func _unhandled_input(event):
+	#If the event is the ui_canceled and we're in build_mode
+	if event.is_action_released("ui_cancel") and build_mode == true:
+		#cancel the build mode
+		cancelBuildMode()
+	
+	#If the event is the ui_accept and we're in build_mode
+	if event.is_action_released("ui_accept") and build_mode == true:
+		#We verify and build the tower
+		verifyAndBuild()
+		#Then cancel the build mode after we're done
+		cancelBuildMode()
+
+#
+# Tower Building Scripts
+#
+
+func initiateBuildMode(tower_type):
+	#Sets the build_type variable to the tower_type, and appends "_tier_1"
+	#You always build a tier 1 tower, so you can append this
+	build_type = tower_type + "_tier_1"
+	#Sets build mode to true (crazy ikr)
+	build_mode = true
+	#Getting the UI, runs the function setTowerPreview under that node.
+	#Sends the build_type & the mouse position to that function
+	get_node("UI").setTowerPreview(build_type, get_global_mouse_position())
+
+func updateTowerPreview():
+	#Save the mouse position
+	var mouse_position = get_global_mouse_position()
+	#Get the current tile from the TowerExclusion tilemap in map_node (example: Map1)
+	#world_to_map wile return the tile coordinate where the mouse currently is
+	var current_tile = map_node.get_node("TowerExclusion").local_to_map(mouse_position)
+	#We're getting the tile position (coordinate) from that tile.
+	#+ Offesetting the tower by 32x32px, else the placing looks goofy.
+	var tile_position = map_node.get_node("TowerExclusion").map_to_local(current_tile)
+	
+	#check if there is any asset in the tileset where you will build
+	var existing_object = map_node.get_node("TowerExclusion"). get_cell_source_id(0, current_tile)
+	
+	#If there isn't a tile loaded
+	if existing_object == -1:
+		#Running the updateTowerPreview in the UI script
+		#Adding the tile position and green color.
+		get_node("UI").updateTowerPreview(tile_position, "00E522")
+		
+		#Setting the build_valid to true
+		build_valid = true
+		#Build location will be the location where the tile should be placed
+		build_location = tile_position
+	else:
+		#Running the upateTowerPreview in the UI script
+		#Adding the tile position and a red color
+		get_node("UI").updateTowerPreview(tile_position, "E80000")
+		#When there is an object in that tile, set build_valid to false
+		build_valid = false
+	
+	#Gets every existing tower from the node "Towers" in the current map
+	var existing_towers = map_node.get_node("Towers").get_children()
+	#For every of these towers
+	for c in existing_towers:
+		#Check if the current position is equal to the build_location
+		if c.position == build_location:
+			#If so, build is invalid, and update the tower previeew in the UI script
+			get_node("UI").updateTowerPreview(tile_position, "E80000")
+			#Set build to invalid
+			build_valid = false
+			#Stop while loop
+			break
+	
+
+func cancelBuildMode():
+	#Resetting the variables
+	build_mode = false
+	build_valid = true
+	#Then remove TowerPreview node
+	get_node("UI/TowerPreview").queue_free()
+
+func verifyAndBuild():
+	#If the build is on a valid place
+	if build_valid:
+		#Load the tower as a scene object
+		var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
+		#Set the location of this tower to the build location
+		new_tower.position = build_location
+		#Add it as a child to the Towers node and give it a readable name.
+		map_node.get_node("Towers").add_child(new_tower, true)
 
 # 
 # Wave Functions
