@@ -4,6 +4,7 @@ var type
 var enemy_array = []
 var built = false
 var enemy
+var fire_ready = true
 
 func _ready():
 	if built:
@@ -18,6 +19,8 @@ func _physics_process(delta):
 		if enemy_array.size() != 0 and built:
 			select_enemy()
 			turn()
+			if fire_ready:
+				fire()
 		else:
 			enemy = null
 
@@ -44,10 +47,18 @@ func turn():
 	#Look at the enemy
 	get_node("Turret").look_at(enemy.get_global_position())
 
+func fire():
+	#Setting the fire_ready variable to false so that it does not fire when the _physics_process runs again
+	fire_ready = false
+	#Get the amount of damage we need to do to the enemy
+	enemy.on_hit(GameData.tower_data[type]["damage"])
+	#Wait for a the fire_rate to pass, then set fire_ready to true to fire again.
+	await(get_tree().create_timer(GameData.tower_data[type]["fire_rate"]).timeout)
+	fire_ready = true
+
 func _on_range_body_entered(body):
 	#Add the enemy parent from the array
 	enemy_array.append(body.get_parent())
-
 
 func _on_range_body_exited(body):
 	#Remove the enemy parent from the array
