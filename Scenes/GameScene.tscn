@@ -41,6 +41,7 @@ theme_override_constants/separation = 15
 layout_mode = 2
 
 [node name="gun" type="TextureButton" parent="UI/HUD/BuildMenu" groups=["build_buttons"]]
+process_mode = 3
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -58,6 +59,7 @@ grow_vertical = 2
 texture = ExtResource("4_scrtf")
 
 [node name="missile" type="TextureButton" parent="UI/HUD/BuildMenu" groups=["build_buttons"]]
+process_mode = 3
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 4
