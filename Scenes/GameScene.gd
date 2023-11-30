@@ -11,11 +11,16 @@ var build_type
 var current_wave = 0
 var enemies_in_wave = 0
 
+var game_mode = "normal"
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Setting the map_node variable to the name of the first map
 	# Later this should switch automatically, when switching maps
 	map_node = get_node("Map1")
+	
+	#Setting the gamemode to the GameData script
+	GameData.game_mode = game_mode
 	
 	#Gets all the buttons in the "build_buttons" group.
 	for i in get_tree().get_nodes_in_group("build_buttons"):
@@ -123,6 +128,8 @@ func verifyAndBuild():
 		var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
 		#Set the location of this tower to the build location
 		new_tower.position = build_location
+		new_tower.type = build_type
+		new_tower.built = true;
 		#Add it as a child to the Towers node and give it a readable name.
 		map_node.get_node("Towers").add_child(new_tower, true)
 
