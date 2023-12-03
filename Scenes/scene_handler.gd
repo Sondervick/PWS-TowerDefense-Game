@@ -2,9 +2,8 @@ extends Node
 
 func _ready():
 	#Gets the LevelSelect node, hidden in the main menu
-	#Gets when the button gets pressed .connect("pressed", ..)
-	#Sets the code to execute to this secript .connect("pressed", self, ...)
-	#Runs the "onLevelSelectPressed" function inside this script .connect("pressed", self, "onLevelSelectPressed")
+	#Gets when the button gets pressed .pressed.connect()
+	#Runs the "onLevelSelectPressed" function inside this script .connect(onLevelSelectPressed)
 	get_node("MainMenu/Margin/VBC/LevelSelect").pressed.connect(onLevelSelectPressed)
 	#Same idea as before.
 	get_node("MainMenu/Margin/VBC/Quit").pressed.connect(onQuit)

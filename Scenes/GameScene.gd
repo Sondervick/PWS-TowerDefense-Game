@@ -11,22 +11,24 @@ var build_type
 var current_wave = 0
 var enemies_in_wave = 0
 
-var game_mode = "normal"
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	# Setting the map_node variable to the name of the first map
 	# Later this should switch automatically, when switching maps
 	map_node = get_node("Map1")
 	
-	#Setting the gamemode to the GameData script
-	GameData.game_mode = game_mode
-	
 	#Gets all the buttons in the "build_buttons" group.
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		#Connects the button to the initiateBuildMode script which requires a tower type.
 		#i.get_name() gets the name of the node object. (example: Gun, Missile)
 		i.pressed.connect(initiateBuildMode.bind(i.name))
+	
+	#Gets the Normal1 node, hidden in the Level Select menu
+	#Gets when the button gets pressed .pressed.connect()
+	#Runs the "onLevelOneNormal" function inside this script .connect(onLevelSelectPressed)
+	get_node("UI/LevelSelect/Margin/Level1VBC/Normal1").pressed.connect(onLevelOneNormal)
+	get_node("UI/LevelSelect/Margin/Level1VBC/Aim1").pressed.connect(onLevelOneAim)
+	get_node("UI/LevelSelect/Margin/Level1VBC/Back").pressed.connect(onBack)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -149,7 +151,7 @@ func start_next_wave():
 func retrieve_wave_data():
 	# Hard coding the wave data, nesting 2 arrays
 	# First is the enemy type, second is the time between spawns
-	var wave_data = [[getRandomEnemy(), 0.7], [getRandomEnemy(), 0.3], [getRandomEnemy(), 0.4], [getRandomEnemy(), 0.2], [getRandomEnemy(), 0.1]]
+	var wave_data = [["EnemySexyMf", 0.7], ["EnemySexyMf", 0.3], ["EnemySexyMf", 0.4], [getRandomEnemy(), 0.2], [getRandomEnemy(), 0.1]]
 	current_wave += 1
 	# Getting the amount of enemies per wave, this is done by looking at the array size
 	enemies_in_wave = wave_data.size()
@@ -185,3 +187,26 @@ func getRandomEnemy():
 		towerName = "EnemySexyMf"
 	return towerName
 
+#
+# Level Selection Things
+#
+
+func onLevelOneNormal():
+	#Set the UI layer to visible
+	get_node("UI/HUD").visible = true
+	get_node("Map1").visible = true
+	#Removing the level select scene instance
+	get_node("UI/LevelSelect").queue_free()
+	GameData.game_mode = "normal"
+
+func onLevelOneAim():
+	#Set the UI layer to visible
+	get_node("UI/HUD").visible = true
+	get_node("Map1").visible = true
+	#Removing the level select scene instance
+	get_node("UI/LevelSelect").queue_free()
+	GameData.game_mode = "manual_aim"
+
+func onBack():
+	#Reloads the current scene, this means it'll reset to the main_menu
+	get_tree().reload_current_scene()

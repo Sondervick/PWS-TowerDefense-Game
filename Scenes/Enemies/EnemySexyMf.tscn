@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11mr1"]
 size = Vector2(29, 29)
 
-[node name="EnemySexyMf" type="PathFollow2D"]
+[node name="EnemySexyMf" type="PathFollow2D" groups=["enemy"]]
 rotates = false
 loop = false
 script = ExtResource("1_1cjnk")

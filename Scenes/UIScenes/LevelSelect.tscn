@@ -1,0 +1,211 @@
+[gd_scene load_steps=5 format=3 uid="uid://cifr4t2atydot"]
+
+[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_hu0d0"]
+[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="2_uer4a"]
+[ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="3_kev6f"]
+[ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_h0has"]
+
+[node name="LevelSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_hu0d0")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Level1VBC" type="VBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Level1" type="TextureButton" parent="Margin/Level1VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_uer4a")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/Level1VBC/Level1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "LEVEL 1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Normal1" type="TextureButton" parent="Margin/Level1VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_uer4a")
+texture_pressed = ExtResource("3_kev6f")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/Level1VBC/Normal1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "NORMAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aim1" type="TextureButton" parent="Margin/Level1VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_uer4a")
+texture_pressed = ExtResource("3_kev6f")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/Level1VBC/Aim1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "MANUAL AIM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DIV" type="Control" parent="Margin/Level1VBC"]
+custom_minimum_size = Vector2(0, 69)
+layout_mode = 2
+
+[node name="Back" type="TextureButton" parent="Margin/Level1VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_uer4a")
+texture_pressed = ExtResource("3_kev6f")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/Level1VBC/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Level2VBC" type="VBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Level2" type="TextureButton" parent="Margin/Level2VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_uer4a")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/Level2VBC/Level2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "LEVEL 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Normal2" type="TextureButton" parent="Margin/Level2VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_uer4a")
+texture_pressed = ExtResource("3_kev6f")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/Level2VBC/Normal2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "NORMAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aim2" type="TextureButton" parent="Margin/Level2VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_uer4a")
+texture_pressed = ExtResource("3_kev6f")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/Level2VBC/Aim2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "MANUAL AIM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DIV" type="Control" parent="Margin/Level2VBC"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2

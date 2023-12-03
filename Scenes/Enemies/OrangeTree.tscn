@@ -7,7 +7,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfclw"]
 size = Vector2(29, 30)
 
-[node name="OrangeTree" type="PathFollow2D"]
+[node name="OrangeTree" type="PathFollow2D" groups=["enemy"]]
 loop = false
 script = ExtResource("1_km3tm")
 
