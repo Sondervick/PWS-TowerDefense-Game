@@ -11,6 +11,7 @@ var build_location
 var build_type
 
 var base_health = 200
+var start_money = 100
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -29,6 +30,9 @@ func _ready():
 	get_node("UI/LevelSelect/Margin/Level1VBC/Normal1").pressed.connect(onLevelOneNormal)
 	get_node("UI/LevelSelect/Margin/Level1VBC/Aim1").pressed.connect(onLevelOneAim)
 	get_node("UI/LevelSelect/Margin/Level1VBC/Back").pressed.connect(onBack)
+	
+	GameData.money = start_money
+	get_node("UI").update_money(start_money)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -65,6 +69,7 @@ func initiateBuildMode(tower_type):
 	#Sets the build_type variable to the tower_type, and appends "_tier_1"
 	#You always build a tier 1 tower, so you can append this
 	build_type = tower_type + "_tier_1"
+	
 	#Sets build mode to true (crazy ikr)
 	build_mode = true
 	#Getting the UI, runs the function setTowerPreview under that node.
@@ -119,13 +124,28 @@ func cancelBuildMode():
 	#Resetting the variables
 	build_mode = false
 	build_valid = true
-	#Then remove TowerPreview node (on this frame)
+	#Then remove TowerPreview node
 	#queue_free() will do it on the next available frame.
-	get_node("UI/TowerPreview").free()
+	get_node("UI/TowerPreview").queue_free()
 
 func verifyAndBuild():
 	#If the build is on a valid place
 	if build_valid:
+		#Get the tower costs
+		var tower_costs = int(GameData.tower_data[build_type]["costs"])
+		var money = int(GameData.money)
+		#If the money is less than the tower costs
+		if money < tower_costs:
+			#Cancel build mode
+			cancelBuildMode()
+			#Return so it doesn't execute more of the script
+			return
+		#Set the money equal to itself - the tower cost
+		money -= tower_costs
+		GameData.money = money
+		#Run the "set_money" func in the UI script
+		get_node("UI").update_money(money)
+		
 		#Load the tower as a scene object
 		var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
 		#Set the location of this tower to the build location
@@ -150,10 +170,11 @@ func start_next_wave():
 func retrieve_wave_data():
 	# Hard coding the wave data, nesting 2 arrays
 	# First is the enemy type, second is the time between spawns
-	var wave_data = [["EnemySexyMf", 0.7], ["EnemySexyMf", 0.3], ["EnemySexyMf", 0.4], [getRandomEnemy(), 0.2], [getRandomEnemy(), 0.1]]
+	var wave_data = [["EnemySexyMf", 0.7], ["GreenTree", 0.3], ["OrangeTree", 0.4], [getRandomEnemy(), 0.2], [getRandomEnemy(), 0.1]]
 	current_wave += 1
 	# Getting the amount of enemies per wave, this is done by looking at the array size
 	enemies_in_wave = wave_data.size()
+	GameData.enemies_in_wave = wave_data.size()
 	return wave_data
 
 func spawn_enemies(wave_data):

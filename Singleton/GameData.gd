@@ -1,6 +1,8 @@
 extends Node
 
 var game_mode = null
+var money = 100
+var enemies_in_wave = 0
 
 #Create a tower_data dictionary
 #Creating a sub-dictionary to every tower, these will hold the range variables for example.
@@ -22,5 +24,26 @@ var tower_data = {
 		"damage": 90,
 		"fire_rate": 3,
 		"costs": 100
+	} 
+}
+
+var enemy_data = {
+	"EnemySexyMf": {
+		"speed": 250,
+		"damage": 50,
+		"health": 40,
+		"money_earned": 30
+	}, 
+	"GreenTree": {
+		"speed": 150,
+		"damage": 25,
+		"health": 150,
+		"money_earned": 20
+	},
+	"OrangeTree": {
+		"speed": 100,
+		"damage": 10,
+		"health": 100,
+		"money_earned": 10
 	} 
 }

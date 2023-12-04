@@ -61,7 +61,6 @@ func select_enemy():
 	var enemy_index = enemy_progress_arr.find(max_offset)
 	if enemy_index != -1:  #Check if the index is valid
 		enemy = enemy_array[enemy_index]
-		print(enemy)
 
 func turn():
 	#Look at the enemy
