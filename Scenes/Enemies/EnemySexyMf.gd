@@ -1,8 +1,12 @@
 extends PathFollow2D
 
-var speed = 50
-var health = -1
+signal base_damage(damage)
+
+var speed = 250
+var health = 1000
 var health_bar
+var enemy_damage = 50
+
 
 func _ready():
 	#Get health bar
@@ -16,6 +20,12 @@ func _ready():
 
 # _physics_process is automatically called every 1/60th of a second
 func _physics_process(delta):
+	#If the tank is at the end of the path
+	if progress_ratio == 1.0:
+		#Send out the signal named base damage
+		emit_signal("base_damage", enemy_damage)
+		#Delete the enemy from the scene
+		queue_free()
 	#we want it to execute the move function
 	move(delta)
 

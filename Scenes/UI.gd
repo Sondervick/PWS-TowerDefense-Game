@@ -48,6 +48,9 @@ func updateTowerPreview(new_pos, color):
 		get_node("TowerPreview/DragTower").modulate = Color(color)
 		get_node("TowerPreview/Sprite2D").modulate = Color(color)
 
+func update_health(health):
+	get_node("HUD/InfoBar/HBoxContainer/Lives").set_text(str(health))
+
 #
 # Game Control function
 #

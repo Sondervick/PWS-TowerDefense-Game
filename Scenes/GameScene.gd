@@ -1,5 +1,7 @@
 extends Node2D
 
+signal game_finished(result)
+
 # Creating various variables
 var map_node
 
@@ -8,15 +10,13 @@ var build_valid = false
 var build_location
 var build_type
 
+var base_health = 200
+
 var current_wave = 0
 var enemies_in_wave = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Setting the map_node variable to the name of the first map
-	# Later this should switch automatically, when switching maps
-	map_node = get_node("Map1")
-	
 	#Gets all the buttons in the "build_buttons" group.
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		#Connects the button to the initiateBuildMode script which requires a tower type.
@@ -82,7 +82,7 @@ func updateTowerPreview():
 	var tile_position = map_node.get_node("TowerExclusion").map_to_local(current_tile)
 	
 	#check if there is any asset in the tileset where you will build
-	var existing_object = map_node.get_node("TowerExclusion"). get_cell_source_id(0, current_tile)
+	var existing_object = map_node.get_node("TowerExclusion").get_cell_source_id(0, current_tile)
 	
 	#If there isn't a tile loaded
 	if existing_object == -1:
@@ -147,7 +147,6 @@ func start_next_wave():
 	await(get_tree().create_timer(2)).timeout
 	spawn_enemies(wave_data)
 
-
 func retrieve_wave_data():
 	# Hard coding the wave data, nesting 2 arrays
 	# First is the enemy type, second is the time between spawns
@@ -164,6 +163,7 @@ func spawn_enemies(wave_data):
 		# Get the name of the enemy from the Array (the name of the enemy is at place 0 in the array)
 		# Add the .tscn file extension
 		var new_enemy = load("res://Scenes/Enemies/" + i[0] + ".tscn").instantiate()
+		new_enemy.connect("base_damage", on_base_damage)
 		# Add the new_enemy to the Path as a child, 
 		# also give it a human readable name (true).
 		map_node.get_node("Path").add_child(new_enemy, true)
@@ -171,6 +171,17 @@ func spawn_enemies(wave_data):
 		# Wait time is defined in the second argument of the array i[1], not i[2]!!
 		await(get_tree().create_timer(i[1])).timeout
 		
+
+func on_base_damage(damage):
+	#Set the health equal to itself - the damage
+	base_health -= damage
+	#If it's lower or equal than 0
+	if base_health <= 0:
+		#Emit loss signal
+		emit_signal("game_finished", false)
+	else:
+		#Update health bar
+		get_node("UI").update_health(base_health)
 
 func getRandomEnemy():
 	#Make a random int (whole number) between 1 and 3
@@ -194,18 +205,28 @@ func getRandomEnemy():
 func onLevelOneNormal():
 	#Set the UI layer to visible
 	get_node("UI/HUD").visible = true
-	get_node("Map1").visible = true
 	#Removing the level select scene instance
 	get_node("UI/LevelSelect").queue_free()
 	GameData.game_mode = "normal"
+	var map = load("res://Scenes/Maps/Map1.tscn").instantiate()
+	# Add the new_enemy to the Path as a child, 
+	# also give it a human readable name (true).
+	add_child(map, true)
+	#Setting the map node to the map that'll be loaded
+	map_node = get_node("Map1")
 
 func onLevelOneAim():
 	#Set the UI layer to visible
 	get_node("UI/HUD").visible = true
-	get_node("Map1").visible = true
 	#Removing the level select scene instance
 	get_node("UI/LevelSelect").queue_free()
 	GameData.game_mode = "manual_aim"
+	var map = load("res://Scenes/Maps/Map1.tscn").instantiate()
+	# Add the new_enemy to the Path as a child, 
+	# also give it a human readable name (true).
+	add_child(map, true)
+	#Setting the map node to the map that'll be loaded
+	map_node = get_node("Map1")
 
 func onBack():
 	#Reloads the current scene, this means it'll reset to the main_menu
