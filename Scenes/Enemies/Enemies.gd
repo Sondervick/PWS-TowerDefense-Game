@@ -5,7 +5,8 @@ signal turret_initialized(damage)
 
 var enemy_type = null
 var enemy = null
-var health_bar
+var health_bar = null
+var health_bar_label = null
 
 var health = null
 var speed = null
@@ -17,6 +18,7 @@ func init_enemy_type(type_enemy, enemy_node):
 	enemy_type = type_enemy
 	enemy = enemy_node
 	health_bar = enemy_node.get_node("HealthBar")
+	health_bar_label= enemy_node.get_node("HealthBar/Health")
 	
 	health = int(GameData.enemy_data[enemy_type]["health"])
 	speed = int(GameData.enemy_data[enemy_type]["speed"])
@@ -29,6 +31,8 @@ func init_enemy_type(type_enemy, enemy_node):
 	health_bar.value = health
 	#Disconnecting the health_bar from the parent node, this stops rotation.
 	health_bar.set_as_top_level(true)
+	
+	health_bar_label.set_text(str(health))
 
 # _physics_process is automatically called every 1/60th of a second
 func _physics_process(delta):
@@ -58,6 +62,7 @@ func on_hit(damage):
 	#Setting the new health value to the health bar
 	health_bar.value = health
 	#If health is equal or lower than 0, delete object
+	health_bar_label.set_text(str(health))
 	if health <= 0:
 		on_destroy()
 
