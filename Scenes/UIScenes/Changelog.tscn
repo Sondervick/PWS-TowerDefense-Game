@@ -1,0 +1,122 @@
+[gd_scene load_steps=6 format=3 uid="uid://bemv1hb1pw5x6"]
+
+[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_ae633"]
+[ext_resource type="Script" path="res://Scenes/UIScenes/Changelog.gd" id="1_wptyh"]
+[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="2_j7rn0"]
+[ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="3_j1xqj"]
+[ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_d3ogv"]
+
+[node name="Changelog" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wptyh")
+
+[node name="BG" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ae633")
+
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="HBC" type="HBoxContainer" parent="Margin"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/separation = 45
+
+[node name="Back" type="TextureButton" parent="Margin/HBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture_normal = ExtResource("2_j7rn0")
+texture_pressed = ExtResource("3_j1xqj")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/HBC/Back"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_d3ogv")
+theme_override_font_sizes/font_size = 52
+text = "BACK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BugReport" type="TextureButton" parent="Margin/HBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture_normal = ExtResource("2_j7rn0")
+texture_pressed = ExtResource("3_j1xqj")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/HBC/BugReport"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_d3ogv")
+theme_override_font_sizes/font_size = 52
+text = "BUG REPORT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Margin"]
+custom_minimum_size = Vector2(0, 800)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Margin/ScrollContainer"]
+custom_minimum_size = Vector2(1820, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Margin/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 824)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("4_d3ogv")
+theme_override_font_sizes/font_size = 48
+text = "V.1.0.1-ALPHA:
+
+Additions:
+- Added changelog + scrollbar
+- Bug report butten added in the changelog
+
+Changed:
+- Pause button reversed; now shows next action.
+
+Bugs fixed:
+- Now restarts whenever an enemy has been killed and an enemy has passed the end
+
+
+secret :p"
+autowrap_mode = 2
+
+[connection signal="pressed" from="Margin/HBC/Back" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="Margin/HBC/BugReport" to="." method="_on_bug_report_pressed"]

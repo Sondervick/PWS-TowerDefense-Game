@@ -10,6 +10,7 @@ func load_main_menu():
 	get_node("MainMenu/Margin/VBC/LevelSelect").pressed.connect(onLevelSelectPressed)
 	#Same idea as before.
 	get_node("MainMenu/Margin/VBC/Quit").pressed.connect(onQuit)
+	get_node("MainMenu/Margin/VBC/Changelog").pressed.connect(onChangelog)
 
 func onLevelSelectPressed():
 	#Get the main menu, and remove it.
@@ -25,6 +26,14 @@ func onLevelSelectPressed():
 func onQuit():
 	#quits the game
 	get_tree().quit()
+
+func onChangelog():
+	#Removes the gamescene node
+	get_node("MainMenu").queue_free()
+	#loads the main menu
+	var changelog = load("res://Scenes/UIScenes/Changelog.tscn").instantiate()
+	#Adds it to the scene handler
+	add_child(changelog)
 
 func unload_game(result):
 	#Removes the gamescene node

@@ -40,8 +40,7 @@ func _physics_process(delta):
 	if progress_ratio == 1.0:
 		#Send out the signal named base damage
 		emit_signal("base_damage", damage)
-		#Delete the enemy from the scene
-		queue_free()
+		on_destroy()
 	#we want it to execute the move function
 	move(delta)
 

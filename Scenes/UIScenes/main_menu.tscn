@@ -85,6 +85,28 @@ text = "SETTINGS"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Changelog" type="TextureButton" parent="Margin/VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("2_mldj6")
+texture_pressed = ExtResource("3_kstto")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Margin/VBC/Changelog"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_tlfqy")
+theme_override_font_sizes/font_size = 52
+text = "CHANGELOG"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="DIV" type="Control" parent="Margin/VBC"]
 custom_minimum_size = Vector2(0, 69)
 layout_mode = 2
