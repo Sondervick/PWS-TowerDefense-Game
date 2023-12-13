@@ -75,7 +75,7 @@ func fire():
 		enemy.on_hit(GameData.tower_data[type]["damage"])
 	
 	#Wait for a the fire_rate to pass, then set fire_ready to true to fire again.
-	await(get_tree().create_timer(GameData.tower_data[type]["fire_rate"]).timeout)
+	await(get_tree().create_timer(GameData.tower_data[type]["fire_rate"], false).timeout)
 	fire_ready = true
 
 func _on_range_body_entered(body):

@@ -106,5 +106,5 @@ func _on_speed_up_pressed():
 #
 
 func auto_price():
-	get_node("HUD/BuildMenu/Gun1Price").set_text("€" + str(GameData.tower_data["gun_tier_1"]["costs"]))
-	get_node("HUD/BuildMenu/Gun2Price").set_text("€" + str(GameData.tower_data["missile_tier_1"]["costs"]))
+	get_node("HUD/BuildMenu/Gun1Price").set_text(" €" + str(GameData.tower_data["gun_tier_1"]["costs"]))
+	get_node("HUD/BuildMenu/Gun2Price").set_text(" €" + str(GameData.tower_data["missile_tier_1"]["costs"]))

@@ -1,0 +1,9 @@
+res://Scenes/GameScene.tscn
+res://Scenes/GameScene.gd
+res://Scenes/UI.gd
+res://Scenes/scene_handler.tscn
+res://Scenes/UIScenes/main_menu.tscn
+res://Scenes/Maps/Map2.tscn
+res://Scenes/UIScenes/LevelSelect.tscn
+res://Scenes/UIScenes/Changelog.tscn
+res://Scenes/Towers/Turrets.gd

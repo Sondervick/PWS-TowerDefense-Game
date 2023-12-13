@@ -105,16 +105,18 @@ theme_override_font_sizes/font_size = 48
 text = "V1.1.0-ALPHA:
 
 Additions:
-- Map 2 (waiting for addition)
+- Map 2
 - Tower prices
 
-Changed:
+Changes:
 - Fixed health indicator (Wrench)
 - Added fast forward indicator (now turns green when enabled)
+- Made it more obivious what to press in level select
 
 BUG FIXES:
 - When the enemy leaves the map, no longer grant money (Sten)
 - Crashes when spamming buy enemy (sten)
+- Tower cooldown is also paused when game is paused (sten)
 
 
 

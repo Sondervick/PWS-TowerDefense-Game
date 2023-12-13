@@ -22,6 +22,7 @@ script = ExtResource("3_7xx70")
 [node name="LevelSelect" parent="UI" instance=ExtResource("2_vwkla")]
 
 [node name="HUD" type="Control" parent="UI"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,8 +36,9 @@ layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -100.0
+offset_left = -96.0
 offset_top = 60.0
+offset_right = -16.0
 offset_bottom = 360.0
 grow_horizontal = 0
 theme_override_constants/separation = 15
@@ -63,6 +65,8 @@ texture = ExtResource("4_scrtf")
 
 [node name="Gun1Price" type="Label" parent="UI/HUD/BuildMenu"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("10_vwsyo")
 theme_override_font_sizes/font_size = 24
 text = "999"
@@ -87,6 +91,8 @@ texture = ExtResource("5_x8c8l")
 
 [node name="Gun2Price" type="Label" parent="UI/HUD/BuildMenu"]
 layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 1
 theme_override_fonts/font = ExtResource("10_vwsyo")
 theme_override_font_sizes/font_size = 24
 text = "999"
