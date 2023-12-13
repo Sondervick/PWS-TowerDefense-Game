@@ -102,7 +102,22 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_d3ogv")
 theme_override_font_sizes/font_size = 48
-text = "V.1.0.1-ALPHA:
+text = "V1.1.0-ALPHA:
+
+Additions:
+- Map 2 (waiting for addition)
+- Tower prices
+
+Changed:
+- Fixed health indicator 
+
+BUG FIXES:
+sprite (wrench)
+- When the enemy leaves the map, no longer grant money (Sten)
+
+
+
+V.1.0.1-ALPHA:
 
 Additions:
 - Added changelog + scrollbar

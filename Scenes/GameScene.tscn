@@ -61,6 +61,14 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("4_scrtf")
 
+[node name="Gun1Price" type="Label" parent="UI/HUD/BuildMenu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_vwsyo")
+theme_override_font_sizes/font_size = 24
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="missile" type="TextureButton" parent="UI/HUD/BuildMenu" groups=["build_buttons"]]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
@@ -77,6 +85,14 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_x8c8l")
+
+[node name="Gun2Price" type="Label" parent="UI/HUD/BuildMenu"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("10_vwsyo")
+theme_override_font_sizes/font_size = 24
+text = "999"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="GameControls" type="HBoxContainer" parent="UI/HUD"]
 custom_minimum_size = Vector2(200, 80)
@@ -152,6 +168,7 @@ custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
 size_flags_horizontal = 10
 texture = ExtResource("11_18sn2")
+stretch_mode = 3
 
 [node name="Lives" type="Label" parent="UI/HUD/InfoBar/HBoxContainer"]
 custom_minimum_size = Vector2(120, 60)

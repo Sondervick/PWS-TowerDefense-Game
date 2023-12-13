@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+func _ready():
+	auto_price()
+
 func setTowerPreview(tower_type, mouse_pos):
 	#Loads the tower scene from the given tower type
 	var drag_tower = load("res://Scenes/Towers/" + tower_type + ".tscn").instantiate()
@@ -92,3 +95,11 @@ func _on_speed_up_pressed():
 	else:
 		#Speed up the game to 200%
 		Engine.set_time_scale(2.0)
+
+#
+# UI ELEMENTS
+#
+
+func auto_price():
+	get_node("HUD/BuildMenu/Gun1Price").set_text(str(GameData.tower_data["gun_tier_1"]["costs"]))
+	get_node("HUD/BuildMenu/Gun2Price").set_text(str(GameData.tower_data["missile_tier_1"]["costs"]))
