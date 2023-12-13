@@ -127,9 +127,16 @@ func cancelBuildMode():
 	build_mode = false
 	build_valid = true
 	#Then remove TowerPreview node
-	#queue_free() will do it on the next available frame.
-	#free() will do it on this frame
+	#free() will delete it on this frame
 	get_node("UI/TowerPreview").free()
+
+func cancelBuildModeFree():
+	#Resetting the variables
+	build_mode = false
+	build_valid = true
+	#Then remove TowerPreview node
+	#queue_free() will delete it on the next available frame.
+	get_node("UI/TowerPreview").queue_free()
 
 func verifyAndBuild():
 	#If the build is on a valid place
@@ -139,8 +146,7 @@ func verifyAndBuild():
 		var money = int(GameData.money)
 		#If the money is less than the tower costs
 		if money < tower_costs:
-			#Cancel build mode
-			cancelBuildMode()
+			cancelBuildModeFree()
 			#Return so it doesn't execute more of the script
 			return
 		#Set the money equal to itself - the tower cost
