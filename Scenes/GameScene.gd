@@ -160,6 +160,7 @@ func verifyAndBuild():
 		#Set the location of this tower to the build location
 		new_tower.position = build_location
 		new_tower.type = build_type
+		new_tower.category = GameData.tower_data[build_type]["fire-catagory"]
 		new_tower.built = true;
 		#Add it as a child to the Towers node and give it a readable name.
 		map_node.get_node("Towers").add_child(new_tower, true)

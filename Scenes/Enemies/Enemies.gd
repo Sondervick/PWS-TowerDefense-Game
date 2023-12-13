@@ -22,7 +22,8 @@ func init_enemy_type(type_enemy, enemy_node):
 	
 	health = int(GameData.enemy_data[enemy_type]["health"])
 	speed = int(GameData.enemy_data[enemy_type]["speed"])
-	damage = int(GameData.enemy_data[enemy_type]["damage"])
+	#We've decided to remove this line due to another way of damaging an enemy
+	#damage = int(GameData.enemy_data[enemy_type]["damage"])
 	money_earned = int(GameData.enemy_data[enemy_type]["money_earned"])
 	
 	#Setting the max value of the healthbar
@@ -38,6 +39,8 @@ func init_enemy_type(type_enemy, enemy_node):
 func _physics_process(delta):
 	#If the tank is at the end of the path
 	if progress_ratio == 1.0:
+		#setting the damage the enemy does to the current health of the enemy
+		damage = health
 		#Send out the signal named base damage
 		emit_signal("base_damage", damage)
 		GameData.enemies_in_wave -= 1

@@ -5,6 +5,7 @@ var enemy_array = []
 var built = false
 var enemy
 var fire_ready = true
+var category
 
 func _ready():
 	if built:
@@ -70,6 +71,11 @@ func fire():
 	#Setting the fire_ready variable to false so that it does not fire when the _physics_process runs again
 	fire_ready = false
 	
+	if category == "Bullet":
+		fire_gun()
+	elif category == "Missile":
+		fire_missile()
+	
 	if enemy != null:
 		#Get the amount of damage we need to do to the enemy
 		enemy.on_hit(GameData.tower_data[type]["damage"])
@@ -77,6 +83,13 @@ func fire():
 	#Wait for a the fire_rate to pass, then set fire_ready to true to fire again.
 	await(get_tree().create_timer(GameData.tower_data[type]["fire_rate"], false).timeout)
 	fire_ready = true
+
+func fire_gun():
+	#Get the animation player and play the "Fire" animation
+	get_node("AnimationPlayer").play("Fire")
+
+func fire_missile():
+	pass
 
 func _on_range_body_entered(body):
 	#Add the enemy parent from the array
