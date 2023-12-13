@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3o80tyx6lyn6"]
+[gd_scene load_steps=13 format=3 uid="uid://d3o80tyx6lyn6"]
 
 [ext_resource type="Script" path="res://Scenes/GameScene.gd" id="1_evaqv"]
 [ext_resource type="PackedScene" uid="uid://cifr4t2atydot" path="res://Scenes/UIScenes/LevelSelect.tscn" id="2_vwkla"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://dw7l67qxoe84u" path="res://Assets/UI/Menu/fastForward.png" id="9_6mwi2"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="10_vwsyo"]
 [ext_resource type="Texture2D" uid="uid://h8hfcvhgcdfp" path="res://Assets/UI/Art/wrench.png" id="11_18sn2"]
+[ext_resource type="Texture2D" uid="uid://dhtxlgd1dqpm3" path="res://Assets/UI/Menu/FastForwardPressed.png" id="11_xcjlp"]
 
 [node name="GameScene" type="Node2D"]
 script = ExtResource("1_evaqv")
@@ -120,7 +121,9 @@ stretch_mode = 0
 [node name="SpeedUp" type="TextureButton" parent="UI/HUD/GameControls"]
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
+toggle_mode = true
 texture_normal = ExtResource("9_6mwi2")
+texture_pressed = ExtResource("11_xcjlp")
 stretch_mode = 0
 
 [node name="InfoBar" type="ColorRect" parent="UI/HUD"]

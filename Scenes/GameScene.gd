@@ -126,7 +126,8 @@ func cancelBuildMode():
 	build_valid = true
 	#Then remove TowerPreview node
 	#queue_free() will do it on the next available frame.
-	get_node("UI/TowerPreview").queue_free()
+	#free() will do it on this frame
+	get_node("UI/TowerPreview").free()
 
 func verifyAndBuild():
 	#If the build is on a valid place

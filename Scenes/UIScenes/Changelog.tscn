@@ -109,11 +109,12 @@ Additions:
 - Tower prices
 
 Changed:
-- Fixed health indicator 
+- Fixed health indicator (Wrench)
+- Added fast forward indicator (now turns green when enabled)
 
 BUG FIXES:
-sprite (wrench)
 - When the enemy leaves the map, no longer grant money (Sten)
+- Crashes when spamming buy enemy (sten)
 
 
 

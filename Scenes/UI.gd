@@ -44,6 +44,11 @@ func setTowerPreview(tower_type, mouse_pos):
 
 func updateTowerPreview(new_pos, color):
 	#Getting the TowerPreview node, setting the position to the new position
+	
+	if get_node("TowerPreview").position == null:
+		get_parent().cancelBuildMode()
+		return
+	
 	get_node("TowerPreview").position = new_pos
 	#If the DragTower node's color is not equal to the given color
 	if get_node("TowerPreview/DragTower").modulate != Color(color):
