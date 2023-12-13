@@ -27,8 +27,10 @@ func _ready():
 	#Gets the Normal1 node, hidden in the Level Select menu
 	#Gets when the button gets pressed .pressed.connect()
 	#Runs the "onLevelOneNormal" function inside this script .connect(onLevelSelectPressed)
-	get_node("UI/LevelSelect/Margin/Level1VBC/Normal1").pressed.connect(onLevelOneNormal)
-	get_node("UI/LevelSelect/Margin/Level1VBC/Aim1").pressed.connect(onLevelOneAim)
+	get_node("UI/LevelSelect/Margin/Level1VBC/Normal1").pressed.connect(onLevelNormal.bind(1))
+	get_node("UI/LevelSelect/Margin/Level1VBC/Aim1").pressed.connect(onLevelAim.bind(1))
+	get_node("UI/LevelSelect/Margin/Level2VBC/Normal2").pressed.connect(onLevelNormal.bind(2))
+	get_node("UI/LevelSelect/Margin/Level2VBC/Aim2").pressed.connect(onLevelAim.bind(2))
 	get_node("UI/LevelSelect/Margin/Level1VBC/Back").pressed.connect(onBack)
 	
 	GameData.money = start_money
@@ -224,31 +226,31 @@ func getRandomEnemy():
 # Level Selection Things
 #
 
-func onLevelOneNormal():
+func onLevelNormal(map_num):
 	#Set the UI layer to visible
 	get_node("UI/HUD").visible = true
 	#Removing the level select scene instance
 	get_node("UI/LevelSelect").queue_free()
 	GameData.game_mode = "normal"
-	var map = load("res://Scenes/Maps/Map1.tscn").instantiate()
+	var map = load("res://Scenes/Maps/Map" + str(map_num) + ".tscn").instantiate()
 	# Add the new_enemy to the Path as a child, 
 	# also give it a human readable name (true).
 	add_child(map, true)
 	#Setting the map node to the map that'll be loaded
-	map_node = get_node("Map1")
+	map_node = get_node("Map" + str(map_num))
 
-func onLevelOneAim():
+func onLevelAim(map_num):
 	#Set the UI layer to visible
 	get_node("UI/HUD").visible = true
 	#Removing the level select scene instance
 	get_node("UI/LevelSelect").queue_free()
 	GameData.game_mode = "manual_aim"
-	var map = load("res://Scenes/Maps/Map1.tscn").instantiate()
+	var map = load("res://Scenes/Maps/Map" + str(map_num) + ".tscn").instantiate()
 	# Add the new_enemy to the Path as a child, 
 	# also give it a human readable name (true).
 	add_child(map, true)
 	#Setting the map node to the map that'll be loaded
-	map_node = get_node("Map1")
+	map_node = get_node("Map" + str(map_num))
 
 func onBack():
 	#Reloads the current scene, this means it'll reset to the main_menu

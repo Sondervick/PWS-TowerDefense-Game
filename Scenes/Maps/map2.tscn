@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://chjuo868og2ep"]
 
-[ext_resource type="Texture2D" uid="uid://5e5tw5qx1qkx" path="res://Assets/Enviroment/TIleset/terrainTiles_default.png" id="1_fcvwf"]
+[ext_resource type="Texture2D" uid="uid://5e5tw5qx1qkx" path="res://Assets/Enviroment/TIleset/terrainTiles_default.png" id="1_hym05"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_33u4v"]
-texture = ExtResource("1_fcvwf")
+texture = ExtResource("1_hym05")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:1/0 = 0
@@ -13,7 +13,7 @@ tile_size = Vector2i(64, 64)
 sources/0 = SubResource("TileSetAtlasSource_33u4v")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4tgxx"]
-texture = ExtResource("1_fcvwf")
+texture = ExtResource("1_hym05")
 texture_region_size = Vector2i(64, 64)
 1:0/0 = 0
 1:0/0/terrain_set = 0
@@ -90,7 +90,7 @@ _data = {
 }
 point_count = 91
 
-[node name="map2" type="Node2D"]
+[node name="Map2" type="Node2D"]
 
 [node name="Ground" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_41vfo")
