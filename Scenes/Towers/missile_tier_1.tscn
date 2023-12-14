@@ -7,8 +7,21 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2wwep"]
 
-[node name="MissileTier1" type="Node2D"]
+[node name="MissileTier1-" type="Node2D"]
 script = ExtResource("1_ddesl")
+
+[node name="UpgradeMenu" type="Button" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -27.0
+offset_top = -27.0
+offset_right = 26.0
+offset_bottom = 26.0
+grow_horizontal = 2
+grow_vertical = 2
+flat = true
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = ExtResource("1_urp8q")

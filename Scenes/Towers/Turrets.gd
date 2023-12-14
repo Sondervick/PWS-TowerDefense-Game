@@ -11,7 +11,8 @@ func _ready():
 	if built:
 		#Get the CollisionShape2D and set it to the radius defined in the tower nodes
 		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * GameData.tower_data[type]["range"]
-
+		get_node("UpgradeMenu").visible = true
+		self.get_node("UpgradeMenu").pressed.connect(onUpgradeMenu)
 #Called every physics frame (you can change this in godot settings, default: 60fps)
 func _physics_process(delta):
 	if built:
@@ -90,6 +91,9 @@ func fire_gun():
 
 func fire_missile():
 	pass
+
+func onUpgradeMenu():
+	print("upgrade fr fr")
 
 func _on_range_body_entered(body):
 	#Add the enemy parent from the array
