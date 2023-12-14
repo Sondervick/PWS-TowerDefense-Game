@@ -45,6 +45,9 @@ func _physics_process(delta):
 		emit_signal("base_damage", damage)
 		GameData.enemies_in_wave -= 1
 		self.queue_free()
+		
+		if GameData.enemies_in_wave <= 0:
+			get_tree().reload_current_scene()
 	#we want it to execute the move function
 	move(delta)
 
