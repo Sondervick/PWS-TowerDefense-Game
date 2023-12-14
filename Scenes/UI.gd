@@ -84,6 +84,10 @@ func _on_pause_play_pressed():
 		get_parent().start_next_wave()
 	else:
 		#If it isn't, pause
+		
+		#load pause menu
+		# var pause_menu = load("res://Scenes/UIScenes/PauseMenu.tscn").instantiate()
+		# add_child(pause_menu, true)
 		get_tree().paused = true
 
 

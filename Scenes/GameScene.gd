@@ -50,6 +50,11 @@ func _unhandled_input(event):
 	if event.is_action_released("ui_cancel") and build_mode == true:
 		#cancel the build mode
 		cancelBuildMode()
+	elif event.is_action_released("ui_cancel") and build_mode == false:
+		#Will have to change this logic, now only allows pausing with escape after the first wave starts
+		if current_wave != 0:
+			get_node("UI")._on_pause_play_pressed()
+			get_node("UI/HUD/GameControls/PausePlay").button_pressed = false
 	
 	#If the event is the ui_accept and we're in build_mode
 	if event.is_action_released("ui_accept") and build_mode == true:

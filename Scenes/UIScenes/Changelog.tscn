@@ -102,11 +102,13 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_d3ogv")
 theme_override_font_sizes/font_size = 48
-text = "V1.1.1-ALPHA
+text = "V1.2.0-ALPHA
 
 Additions:
+- pause menu?	
 
 Changes:
+- escape now pauses the game
 
 Bug Fixes:
 - Now puts you to the main menu when completing wave (RENS)
