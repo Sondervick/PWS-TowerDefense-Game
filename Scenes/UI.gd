@@ -76,19 +76,21 @@ func _on_pause_play_pressed():
 	if get_tree().is_paused():
 		#If it is, unpause
 		get_tree().paused = false
+		get_node("HUD/GameControls/PausePlay").button_pressed = true
 	#If the current wave is 0, aka no waves have started yet
 	elif get_parent().current_wave == 0:
 		#Add 1 to the wave counter
 		get_parent().current_wave =+ 1
 		#Start new wave
 		get_parent().start_next_wave()
+		get_node("HUD/GameControls/PausePlay").button_pressed = true
 	else:
 		#If it isn't, pause
-		
 		#load pause menu
-		# var pause_menu = load("res://Scenes/UIScenes/PauseMenu.tscn").instantiate()
-		# add_child(pause_menu, true)
+		var pause_menu = load("res://Scenes/UIScenes/PauseMenu.tscn").instantiate()
+		add_child(pause_menu, true)
 		get_tree().paused = true
+		get_node("HUD/GameControls/PausePlay").button_pressed = false
 
 
 func _on_speed_up_pressed():
