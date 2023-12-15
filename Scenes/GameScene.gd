@@ -11,7 +11,7 @@ var build_location
 var build_type
 
 var base_health = 200
-var start_money = 100
+var start_money = 300
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -247,6 +247,7 @@ func onLevelNormal(map_num):
 	add_child(map, true)
 	#Setting the map node to the map that'll be loaded
 	map_node = get_node("Map" + str(map_num))
+	GameData.map_node = map_node
 
 func onLevelAim(map_num):
 	#Set the UI layer to visible
@@ -260,6 +261,7 @@ func onLevelAim(map_num):
 	add_child(map, true)
 	#Setting the map node to the map that'll be loaded
 	map_node = get_node("Map" + str(map_num))
+	GameData.map_node = map_node
 
 func onBack():
 	#Reloads the current scene, this means it'll reset to the main_menu

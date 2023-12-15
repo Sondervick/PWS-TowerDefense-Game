@@ -1,42 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://bdewcnqtkfwsf"]
+[gd_scene load_steps=7 format=3 uid="uid://bdewcnqtkfwsf"]
 
 [ext_resource type="Script" path="res://Scenes/UIScenes/TowerUpgrade.gd" id="1_i67xv"]
 [ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_no00y"]
 [ext_resource type="Texture2D" uid="uid://cmmovymas2l05" path="res://Assets/UI/Menu/red_cross.png" id="2_8tvn2"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="3_sf6ww"]
+[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="4_f0i1k"]
+[ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="5_fq10s"]
 
 [node name="TowerUpgrade" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_top = 60.0
+offset_right = -1664.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_i67xv")
 
 [node name="BG" type="TextureRect" parent="."]
-custom_minimum_size = Vector2(256, 1080)
+custom_minimum_size = Vector2(256, 1020)
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
 offset_top = -1020.0
 offset_right = 256.0
-offset_bottom = 60.0
 grow_vertical = 0
 texture = ExtResource("1_no00y")
 expand_mode = 1
 
 [node name="Margin" type="MarginContainer" parent="."]
-custom_minimum_size = Vector2(256, 1080)
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_top = -480.0
-offset_right = 256.0
-offset_bottom = 600.0
+offset_top = -510.0
+offset_right = 290.0
+offset_bottom = 510.0
 grow_vertical = 2
+scale = Vector2(0.88, 1)
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
@@ -51,7 +54,7 @@ layout_mode = 2
 size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("3_sf6ww")
 theme_override_font_sizes/font_size = 20
-text = "PLACEHOLDER"
+text = "NAME"
 
 [node name="Damage" type="Label" parent="Margin/VBC-Labels"]
 layout_mode = 2
@@ -81,6 +84,9 @@ layout_mode = 2
 [node name="UpgradeButton" type="TextureButton" parent="Margin/VBC-Labels"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("4_f0i1k")
+texture_pressed = ExtResource("5_fq10s")
 
 [node name="UpgradeLabel" type="Label" parent="Margin/VBC-Labels/UpgradeButton"]
 layout_mode = 1
@@ -107,6 +113,8 @@ size_flags_vertical = 8
 [node name="SellButton" type="TextureButton" parent="Margin/VBC-Buttons"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
+texture_normal = ExtResource("4_f0i1k")
+texture_pressed = ExtResource("5_fq10s")
 
 [node name="SellLabel" type="Label" parent="Margin/VBC-Buttons/SellButton"]
 layout_mode = 1
@@ -125,8 +133,9 @@ size_flags_vertical = 8
 theme_override_fonts/font = ExtResource("3_sf6ww")
 theme_override_font_sizes/font_size = 20
 text = "SELL"
+horizontal_alignment = 1
 
-[node name="Control2" type="Control" parent="Margin/VBC-Buttons"]
+[node name="DIV2" type="Control" parent="Margin/VBC-Buttons"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
@@ -138,8 +147,8 @@ size_flags_vertical = 4
 texture_normal = ExtResource("2_8tvn2")
 stretch_mode = 0
 
-[node name="Control" type="Control" parent="Margin/VBC-Buttons"]
-custom_minimum_size = Vector2(0, 60)
+[node name="DIV" type="Control" parent="Margin/VBC-Buttons"]
+custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
 [connection signal="pressed" from="Margin/VBC-Labels/UpgradeButton" to="." method="_on_upgrade_button_pressed"]

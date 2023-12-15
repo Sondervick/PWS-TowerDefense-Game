@@ -105,10 +105,12 @@ theme_override_font_sizes/font_size = 48
 text = "V1.2.0-ALPHA
 
 Additions:
-- pause menu?	
+- bare bone pause menu
+- Bare bone upgrade menu
 
 Changes:
 - escape now pauses the game
+- spacebar repeats the last action
 
 Bug Fixes:
 - Now puts you to the main menu when completing wave (RENS)

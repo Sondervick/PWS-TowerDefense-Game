@@ -60,7 +60,7 @@ func update_health(health):
 	get_node("HUD/InfoBar/HBoxContainer/Lives").set_text(str(health))
 
 func update_money(money):
-		get_node("HUD/InfoBar/HBoxContainer/Money").set_text(str(money))
+	get_node("HUD/InfoBar/HBoxContainer/Money").set_text(str(money))
 
 #
 # Game Control function

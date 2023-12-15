@@ -3,6 +3,9 @@ extends Node
 var game_mode = null
 var money = 100
 var enemies_in_wave = 0
+var map_node
+
+var upgrade_menu_open = false
 
 #Create a tower_data dictionary
 #Creating a sub-dictionary to every tower, these will hold the range variables for example.
@@ -52,4 +55,10 @@ var enemy_data = {
 		"health": 100,
 		"money_earned": 10
 	} 
+}
+
+var wave_data = {
+	"wave1": {
+		"wave_data" = "ea"
+	}
 }

@@ -6,6 +6,7 @@ var built = false
 var enemy
 var fire_ready = true
 var category
+var upgrade_menu_open = false
 
 func _ready():
 	if built:
@@ -13,6 +14,7 @@ func _ready():
 		self.get_node("Range/CollisionShape2D").get_shape().radius = 0.5 * GameData.tower_data[type]["range"]
 		get_node("UpgradeMenu").visible = true
 		self.get_node("UpgradeMenu").pressed.connect(onUpgradeMenu)
+
 #Called every physics frame (you can change this in godot settings, default: 60fps)
 func _physics_process(delta):
 	if built:
@@ -30,6 +32,7 @@ func _physics_process(delta):
 				enemy = null
 
 func turn_mouse():
+	print("turn called")
 	#Get mouse pos
 	var mouse_pos = get_global_mouse_position()
 	#Make turret look at mouse pos
@@ -93,8 +96,13 @@ func fire_missile():
 	pass
 
 func onUpgradeMenu():
+	if GameData.upgrade_menu_open:
+		get_parent().get_parent().get_parent().get_node("UI/HUD/TowerUpgrade").free()
+	GameData.upgrade_menu_open = true
+	
 	var upgrade_menu = load("res://Scenes/UIScenes/TowerUpgrade.tscn").instantiate()
 	upgrade_menu.tower_type = type
+	upgrade_menu.tower_node = self
 	get_parent().get_parent().get_parent().get_node("UI/HUD").add_child(upgrade_menu, true)
 
 func _on_range_body_entered(body):
