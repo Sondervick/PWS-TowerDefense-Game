@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bdewcnqtkfwsf"]
+[gd_scene load_steps=5 format=3 uid="uid://bdewcnqtkfwsf"]
 
 [ext_resource type="Script" path="res://Scenes/UIScenes/TowerUpgrade.gd" id="1_i67xv"]
 [ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_no00y"]
 [ext_resource type="Texture2D" uid="uid://cmmovymas2l05" path="res://Assets/UI/Menu/red_cross.png" id="2_8tvn2"]
+[ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="3_sf6ww"]
 
 [node name="TowerUpgrade" type="Control"]
 layout_mode = 3
@@ -41,11 +42,95 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="VBC" type="VBoxContainer" parent="Margin"]
+[node name="VBC-Labels" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TowerName" type="Label" parent="Margin/VBC-Labels"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_sf6ww")
+theme_override_font_sizes/font_size = 20
+text = "PLACEHOLDER"
+
+[node name="Damage" type="Label" parent="Margin/VBC-Labels"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_sf6ww")
+theme_override_font_sizes/font_size = 20
+text = "Damage"
+
+[node name="RateOfFire" type="Label" parent="Margin/VBC-Labels"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_sf6ww")
+theme_override_font_sizes/font_size = 20
+text = "FIRERATE"
+
+[node name="Range" type="Label" parent="Margin/VBC-Labels"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_sf6ww")
+theme_override_font_sizes/font_size = 20
+text = "Range"
+
+[node name="Control" type="Control" parent="Margin/VBC-Labels"]
+custom_minimum_size = Vector2(0, 256)
+layout_mode = 2
+
+[node name="UpgradeButton" type="TextureButton" parent="Margin/VBC-Labels"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="UpgradeLabel" type="Label" parent="Margin/VBC-Labels/UpgradeButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -13.0
+offset_right = 49.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_sf6ww")
+theme_override_font_sizes/font_size = 20
+text = "UPGRADE"
+
+[node name="VBC-Buttons" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
 size_flags_vertical = 8
 
-[node name="Close" type="TextureButton" parent="Margin/VBC"]
+[node name="SellButton" type="TextureButton" parent="Margin/VBC-Buttons"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+
+[node name="SellLabel" type="Label" parent="Margin/VBC-Buttons/SellButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.5
+offset_top = -13.0
+offset_right = 49.5
+offset_bottom = 13.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("3_sf6ww")
+theme_override_font_sizes/font_size = 20
+text = "SELL"
+
+[node name="Control2" type="Control" parent="Margin/VBC-Buttons"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="Close" type="TextureButton" parent="Margin/VBC-Buttons"]
 custom_minimum_size = Vector2(50, 50)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -53,8 +138,10 @@ size_flags_vertical = 4
 texture_normal = ExtResource("2_8tvn2")
 stretch_mode = 0
 
-[node name="Control" type="Control" parent="Margin/VBC"]
+[node name="Control" type="Control" parent="Margin/VBC-Buttons"]
 custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
 
-[connection signal="pressed" from="Margin/VBC/Close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Margin/VBC-Labels/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Margin/VBC-Buttons/SellButton" to="." method="_on_sell_button_pressed"]
+[connection signal="pressed" from="Margin/VBC-Buttons/Close" to="." method="_on_close_pressed"]

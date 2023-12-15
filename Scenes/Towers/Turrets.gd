@@ -94,6 +94,7 @@ func fire_missile():
 
 func onUpgradeMenu():
 	var upgrade_menu = load("res://Scenes/UIScenes/TowerUpgrade.tscn").instantiate()
+	upgrade_menu.tower_type = type
 	get_parent().get_parent().get_parent().get_node("UI/HUD").add_child(upgrade_menu, true)
 
 func _on_range_body_entered(body):
