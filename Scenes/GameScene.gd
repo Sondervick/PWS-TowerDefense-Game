@@ -11,7 +11,7 @@ var build_location
 var build_type
 
 var base_health = 200
-var start_money = 300
+var start_money = 100
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -32,6 +32,7 @@ func _ready():
 	get_node("UI/LevelSelect/Margin/Level2VBC/Normal2").pressed.connect(onLevelNormal.bind(2))
 	get_node("UI/LevelSelect/Margin/Level2VBC/Aim2").pressed.connect(onLevelAim.bind(2))
 	get_node("UI/LevelSelect/Margin/Level1VBC/Back").pressed.connect(onBack)
+	get_node("UI/HUD/InfoBar/HBoxContainer/Wave").set_text("Wave: " + str(GameData.current_wave) + "/" + str(GameData.wave_data.keys()[-1]))
 	
 	GameData.money = start_money
 	get_node("UI").update_money(start_money)
@@ -178,12 +179,12 @@ func start_next_wave():
 	# This prevents waves from spawning instantly after each other.
 	await(get_tree().create_timer(2)).timeout
 	spawn_enemies(wave_data)
+	get_node("UI/HUD/InfoBar/HBoxContainer/Wave").set_text("Wave: " + str(GameData.current_wave) + "/" + str(GameData.wave_data.keys()[-1]))
 
 func retrieve_wave_data():
-	# Hard coding the wave data, nesting 2 arrays
-	# First is the enemy type, second is the time between spawns
-	var wave_data = [["EnemySexyMf", 0.7], ["GreenTree", 0.3], ["OrangeTree", 0.4], [getRandomEnemy(), 0.2], [getRandomEnemy(), 0.1]]
+	var wave_data = GameData.wave_data[current_wave]["wave_data"]
 	current_wave += 1
+	GameData.current_wave += 1
 	# Getting the amount of enemies per wave, this is done by looking at the array size
 	enemies_in_wave = wave_data.size()
 	GameData.enemies_in_wave = wave_data.size()

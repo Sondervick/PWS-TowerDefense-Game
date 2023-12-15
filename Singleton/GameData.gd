@@ -4,6 +4,7 @@ var game_mode = null
 var money = 100
 var enemies_in_wave = 0
 var map_node
+var current_wave = 0
 
 var upgrade_menu_open = false
 
@@ -11,7 +12,7 @@ var upgrade_menu_open = false
 #Creating a sub-dictionary to every tower, these will hold the range variables for example.
 var tower_data = {
 	"gun_tier_1": {
-		"range": 750,
+		"range": 500,
 		"damage": 20,
 		"fire_rate": 1.5,
 		"costs": 75,
@@ -19,17 +20,17 @@ var tower_data = {
 		"next-upgrade": "gun_tier_2"
 	}, 
 	"gun_tier_2": {
-		"range": 1000,
-		"damage": 45,
-		"fire_rate": 1,
+		"range": 750,
+		"damage": 30,
+		"fire_rate": 0.75,
 		"costs": 150,
 		"fire-catagory": "Bullet",
 		"next-upgrade": "none"
 	},
 	"missile_tier_1": {
-		"range": 500,
+		"range": 750,
 		"damage": 90,
-		"fire_rate": 3,
+		"fire_rate": 2,
 		"costs": 100,
 		"fire-catagory": "Missle",
 		"next-upgrade": "none"
@@ -41,7 +42,7 @@ var enemy_data = {
 		"speed": 250,
 		"damage": 50,
 		"health": 40,
-		"money_earned": 30
+		"money_earned": 15
 	}, 
 	"GreenTree": {
 		"speed": 150,
@@ -57,8 +58,26 @@ var enemy_data = {
 	} 
 }
 
+#All the seperate waves
 var wave_data = {
-	"wave1": {
-		"wave_data" = "ea"
+	1: {
+		"wave_data" = [["EnemySexyMf", 0.7], ["GreenTree", 0.3], ["OrangeTree", 0.4], ["EnemySexyMf", 0.2], ["OrangeTree", 0.1]],
+		"last_wave" = false
+	},
+	2: {
+		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.5], ["OrangeTree", 0.3], ["GreenTree", 0.1], ["OrangeTree", 0.3], ["EnemySexyMf", 0.3], ["GreenTree", 0.3], ["GreenTree", 0.5]],
+		"last_wave" = false
+	},
+	3: {
+		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2]],
+		"last_wave" = false
+	},
+	4: {
+		"wave_data" = [["GreenTree", 0.6], ["EnemySexyMf", 0.5], ["OrangeTree", 0.3], ["OrangeTree", 0.2], ["GreenTree", 0.3], ["EnemySexyMf", 0.3]],
+		"last_wave" = false
+	},
+	5: {
+		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.1], ["OrangeTree", 0.5], ["GreenTree", 0.2], ["EnemySexyMf", 0.3], ["GreenTree", 0.4], ["OrangeTree", 0.2], ["GreenTree", 0.4], ["GreenTree", 0.6], ["OrangeTree", 0.2], ["EnemySexyMf", 0.3]],
+		"last_wave" = true
 	}
 }

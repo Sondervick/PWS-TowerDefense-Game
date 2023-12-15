@@ -107,10 +107,12 @@ text = "V1.2.0-ALPHA
 Additions:
 - bare bone pause menu
 - Bare bone upgrade menu
+- Wave counter
 
 Changes:
 - escape now pauses the game
 - spacebar repeats the last action
+- Wave System (+ extra waves)
 
 Bug Fixes:
 - Now puts you to the main menu when completing wave (RENS)

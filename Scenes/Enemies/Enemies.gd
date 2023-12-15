@@ -78,9 +78,11 @@ func on_destroy():
 	GameData.enemies_in_wave -= 1
 	
 	#if enemies in wave is lower or equal to 0
-	if GameData.enemies_in_wave <= 0:
+	if GameData.enemies_in_wave <= 0 and GameData.wave_data[GameData.current_wave]["last_wave"] == true:
 		#Reload the scene (should be a different solution later)
 		get_tree().reload_current_scene()
+	elif GameData.enemies_in_wave <= 0:
+		get_parent().get_parent().get_parent().start_next_wave()
 	
 	#Destroy the object on the next available frame
 	self.queue_free()
