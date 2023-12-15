@@ -1,0 +1,60 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdewcnqtkfwsf"]
+
+[ext_resource type="Script" path="res://Scenes/UIScenes/TowerUpgrade.gd" id="1_i67xv"]
+[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_no00y"]
+[ext_resource type="Texture2D" uid="uid://cmmovymas2l05" path="res://Assets/UI/Menu/red_cross.png" id="2_8tvn2"]
+
+[node name="TowerUpgrade" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_i67xv")
+
+[node name="BG" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(256, 1080)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -1020.0
+offset_right = 256.0
+offset_bottom = 60.0
+grow_vertical = 0
+texture = ExtResource("1_no00y")
+expand_mode = 1
+
+[node name="Margin" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(256, 1080)
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_top = -480.0
+offset_right = 256.0
+offset_bottom = 600.0
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBC" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="Close" type="TextureButton" parent="Margin/VBC"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("2_8tvn2")
+stretch_mode = 0
+
+[node name="Control" type="Control" parent="Margin/VBC"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[connection signal="pressed" from="Margin/VBC/Close" to="." method="_on_close_pressed"]

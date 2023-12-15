@@ -93,7 +93,8 @@ func fire_missile():
 	pass
 
 func onUpgradeMenu():
-	print("upgrade fr fr")
+	var upgrade_menu = load("res://Scenes/UIScenes/TowerUpgrade.tscn").instantiate()
+	get_parent().get_parent().get_parent().get_node("UI/HUD").add_child(upgrade_menu, true)
 
 func _on_range_body_entered(body):
 	#Add the enemy parent from the array
