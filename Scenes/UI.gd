@@ -66,6 +66,35 @@ func update_money(money):
 # Game Control function
 #
 
+func on_pause_ui():
+	#If build mode is enabled
+	if get_parent().build_mode:
+		#cancel build mode.
+		get_parent().cancelBuildMode()
+		return
+	
+	#Getting wether the game is paused
+	if get_tree().is_paused():
+		print("called paused")
+		#If it is, unpause
+		get_tree().paused = false
+		get_node("HUD/GameControls/PausePlay").button_pressed = true
+		get_node("PauseMenu").queue_free()
+	#If the current wave is 0, aka no waves have started yet
+	elif get_parent().current_wave == 0:
+		#Add 1 to the wave counter
+		get_parent().current_wave =+ 1
+		#Start new wave
+		get_parent().start_next_wave()
+		get_node("HUD/GameControls/PausePlay").button_pressed = true
+	else:
+		#If it isn't, pause
+		#load pause menu
+		var pause_menu = load("res://Scenes/UIScenes/PauseMenu.tscn").instantiate()
+		add_child(pause_menu, true)
+		get_tree().paused = true
+		get_node("HUD/GameControls/PausePlay").button_pressed = false
+
 func _on_pause_play_pressed():
 	#If build mode is enabled
 	if get_parent().build_mode:
@@ -86,9 +115,6 @@ func _on_pause_play_pressed():
 		get_node("HUD/GameControls/PausePlay").button_pressed = true
 	else:
 		#If it isn't, pause
-		#load pause menu
-		var pause_menu = load("res://Scenes/UIScenes/PauseMenu.tscn").instantiate()
-		add_child(pause_menu, true)
 		get_tree().paused = true
 		get_node("HUD/GameControls/PausePlay").button_pressed = false
 
@@ -107,7 +133,24 @@ func _on_speed_up_pressed():
 		#Speed up the game to 200%
 		Engine.set_time_scale(2.0)
 
-#
+#Only runs when any input given is not already being consumed by the UI
+func _unhandled_input(event):
+	#If the event is the ui_canceled and we're in build_mode
+	if event.is_action_released("ui_cancel") and get_parent().build_mode == true:
+		#cancel the build mode
+		get_parent().cancelBuildMode()
+	elif event.is_action_released("ui_pause") and get_parent().build_mode == false:
+		on_pause_ui()
+	elif event.is_action_released("pause"):
+		_on_pause_play_pressed()
+	#If the event is the ui_accept and we're in build_mode
+	elif event.is_action_released("ui_accept") and get_parent().build_mode == true:
+		#We verify and build the tower
+		get_parent().verifyAndBuild()
+		#Then cancel the build mode after we're done
+		get_parent().cancelBuildMode()
+
+# 
 # UI ELEMENTS
 #
 

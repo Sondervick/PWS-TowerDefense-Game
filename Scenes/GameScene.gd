@@ -45,22 +45,6 @@ func _process(delta):
 		#Run updateTowerPreview func
 		updateTowerPreview()
 
-#Only runs when any input given is not already being consumed by the UI
-func _unhandled_input(event):
-	#If the event is the ui_canceled and we're in build_mode
-	if event.is_action_released("ui_cancel") and build_mode == true:
-		#cancel the build mode
-		cancelBuildMode()
-	elif event.is_action_released("ui_cancel") and build_mode == false:
-		get_node("UI")._on_pause_play_pressed()
-	
-	#If the event is the ui_accept and we're in build_mode
-	if event.is_action_released("ui_accept") and build_mode == true:
-		#We verify and build the tower
-		verifyAndBuild()
-		#Then cancel the build mode after we're done
-		cancelBuildMode()
-
 #
 # Tower Building Scripts
 #

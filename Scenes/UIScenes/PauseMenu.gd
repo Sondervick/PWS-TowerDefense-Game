@@ -1,11 +1,5 @@
 extends Control
 
-func _unhandled_input(event):
-	#If the event is the ui_canceled (pressed escape)
-	if event.is_action_released("ui_cancel"):
-		#Then we want to continue the game
-		_on_continue_pressed()
-
 func _on_continue_pressed():
 	#Everything is currently paused so, unpause
 	get_tree().paused = false

@@ -17,6 +17,7 @@
 script = ExtResource("1_evaqv")
 
 [node name="UI" type="CanvasLayer" parent="."]
+process_mode = 3
 script = ExtResource("3_7xx70")
 
 [node name="LevelSelect" parent="UI" instance=ExtResource("2_vwkla")]
@@ -32,6 +33,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="BuildMenu" type="VBoxContainer" parent="UI/HUD"]
+process_mode = 1
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
