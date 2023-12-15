@@ -110,8 +110,7 @@ Additions:
 - Wave counter
 
 Changes:
-- escape now pauses the game
-- spacebar repeats the last action
+- escape and space now pause the game
 - Wave System (+ extra waves)
 
 Bug Fixes:
