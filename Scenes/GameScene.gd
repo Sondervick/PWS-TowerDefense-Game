@@ -11,7 +11,7 @@ var build_location
 var build_type
 
 var base_health = 200
-var start_money = 100
+var start_money = 600
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -23,6 +23,8 @@ func _ready():
 		#Connects the button to the initiateBuildMode script which requires a tower type.
 		#i.get_name() gets the name of the node object. (example: Gun, Missile)
 		i.pressed.connect(initiateBuildMode.bind(i.name))
+	
+	GameData.current_wave = current_wave
 	
 	#Gets the Normal1 node, hidden in the Level Select menu
 	#Gets when the button gets pressed .pressed.connect()
