@@ -11,7 +11,7 @@ var build_location
 var build_type
 
 var base_health = 200
-var start_money = 600
+var start_money = 100
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -38,6 +38,7 @@ func _ready():
 	
 	GameData.money = start_money
 	get_node("UI").update_money(start_money)
+	get_node("UI").reset_fast_forward()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -144,6 +145,15 @@ func verifyAndBuild():
 		#Run the "set_money" func in the UI script
 		get_node("UI").update_money(money)
 		
+		#Define a new Sprite2D, make this the range texture
+		var range_texture = Sprite2D.new()
+		var scaling = GameData.tower_data[build_type]["range"] / 600.0
+		range_texture.scale = Vector2(scaling, scaling)
+		var texture = load("res://Assets/UI/Art/range_overlay.png")
+		range_texture.texture = texture
+		range_texture.modulate = Color("00E522")
+		range_texture.name = "RangeTexture"
+		
 		#Load the tower as a scene object
 		var new_tower = load("res://Scenes/Towers/" + build_type + ".tscn").instantiate()
 		#Set the location of this tower to the build location
@@ -153,6 +163,8 @@ func verifyAndBuild():
 		new_tower.built = true;
 		#Add it as a child to the Towers node and give it a readable name.
 		map_node.get_node("Towers").add_child(new_tower, true)
+		new_tower.add_child(range_texture, true)
+		new_tower.get_node("RangeTexture").visible = false
 
 # 
 # Wave Functions

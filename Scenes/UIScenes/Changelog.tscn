@@ -102,7 +102,21 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_d3ogv")
 theme_override_font_sizes/font_size = 48
-text = "V1.2.0-ALPHA
+text = "V1.2.1-ALPHA:
+
+Additions:
+- Added range indicator to upgrade menu
+
+Bug fixes:
+- Map 2 is no longer a black screen (sten + null)
+- Wave counter restarts (null)
+- Game no longer crashes when pausing with space & unpausing with escape (beau)
+
+
+
+
+
+V1.2.0-ALPHA
 
 Additions:
 - bare bone pause menu

@@ -36,6 +36,8 @@ func _ready():
 	get_node("Margin/VBC-Labels/RateOfFire").set_text("RoF: " + str(fire_rate) + " sec")
 	get_node("Margin/VBC-Labels/Range").set_text("Range: " + str(range))
 	
+	tower_node.get_node("RangeTexture").visible = true
+	
 	if upgrade == "none":
 		get_node("Margin/VBC-Labels/UpgradeButton").disabled = true
 		get_node("Margin/VBC-Labels/UpgradeButton/UpgradeLabel").set_text("Max Upgrade")
@@ -44,6 +46,7 @@ func _ready():
 
 func _on_close_pressed():
 	GameData.upgrade_menu_open = false
+	tower_node.get_node("RangeTexture").visible = false
 	self.queue_free()
 
 func _on_upgrade_button_pressed():
@@ -65,9 +68,20 @@ func delete_tower_tile():
 	tower_node.queue_free()
 
 func create_tower():
+	var range_texture = Sprite2D.new()
+	var scaling = GameData.tower_data[upgrade]["range"] / 600.0
+	range_texture.scale = Vector2(scaling, scaling)
+	var texture = load("res://Assets/UI/Art/range_overlay.png")
+	range_texture.texture = texture
+	range_texture.modulate = Color("00E522")
+	range_texture.name = "RangeTexture"
+	
 	var upgrade_tower_node = load("res://Scenes/Towers/" + upgrade + ".tscn").instantiate()
 	upgrade_tower_node.position = tile_pos
 	upgrade_tower_node.type = upgrade
 	upgrade_tower_node.category = GameData.tower_data[upgrade]["fire-catagory"]
 	upgrade_tower_node.built = true;
 	GameData.map_node.get_node("Towers").add_child(upgrade_tower_node, true)
+	upgrade_tower_node.add_child(range_texture, true)
+	upgrade_tower_node.get_node("RangeTexture").visible = false
+	

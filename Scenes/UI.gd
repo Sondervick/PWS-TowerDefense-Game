@@ -24,7 +24,7 @@ func setTowerPreview(tower_type, mouse_pos):
 	var texture = load("res://Assets/UI/Art/range_overlay.png")
 	#Set the range_texture's texture to the loaded texture
 	range_texture.texture = texture
-	#Set the color of the range_texture to gray/blue
+	#Set the color of the range_texture
 	range_texture.modulate = Color("00E522")
 	
 	#Make a new control node
@@ -75,11 +75,11 @@ func on_pause_ui():
 	
 	#Getting wether the game is paused
 	if get_tree().is_paused():
-		print("called paused")
 		#If it is, unpause
 		get_tree().paused = false
 		get_node("HUD/GameControls/PausePlay").button_pressed = true
-		get_node("PauseMenu").queue_free()
+		if get_node_or_null("PauseMenu"):
+			get_node("PauseMenu").queue_free()
 	#If the current wave is 0, aka no waves have started yet
 	elif get_parent().current_wave == 0:
 		#Add 1 to the wave counter
@@ -132,6 +132,10 @@ func _on_speed_up_pressed():
 	else:
 		#Speed up the game to 200%
 		Engine.set_time_scale(2.0)
+
+func reset_fast_forward():
+	Engine.set_time_scale(1.0)
+	get_node("HUD/GameControls/SpeedUp").button_pressed = false
 
 #Only runs when any input given is not already being consumed by the UI
 func _unhandled_input(event):
