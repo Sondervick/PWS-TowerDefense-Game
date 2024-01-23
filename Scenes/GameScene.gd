@@ -11,7 +11,7 @@ var build_location
 var build_type
 
 var base_health = 200
-var start_money = 100
+var start_money = 10000
 
 var current_wave = 0
 var enemies_in_wave = 0
@@ -202,7 +202,6 @@ func spawn_enemies(wave_data):
 		# Wait the amount of seconds between spawning another enemy.
 		# Wait time is defined in the second argument of the array i[1], not i[2]!!
 		await(get_tree().create_timer(i[1])).timeout
-		
 
 func on_base_damage(damage):
 	#Set the health equal to itself - the damage

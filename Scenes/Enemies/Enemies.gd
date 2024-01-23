@@ -2,6 +2,7 @@ extends PathFollow2D
 
 signal base_damage(damage)
 signal turret_initialized(damage)
+signal game_finished(result)
 
 var enemy_type = null
 var enemy = null
@@ -48,8 +49,8 @@ func _physics_process(delta):
 		
 		#if enemies in wave is lower or equal to 0
 		if GameData.enemies_in_wave <= 0 and GameData.wave_data[GameData.current_wave]["last_wave"] == true:
-			#Reload the scene (should be a different solution later)
-			get_tree().reload_current_scene()
+			#Sends win signal
+			emit_signal("game_finished", true)
 		elif GameData.enemies_in_wave <= 0:
 			get_parent().get_parent().get_parent().start_next_wave()
 	#we want it to execute the move function
@@ -83,11 +84,10 @@ func on_destroy():
 	
 	#if enemies in wave is lower or equal to 0
 	if GameData.enemies_in_wave <= 0 and GameData.wave_data[GameData.current_wave]["last_wave"] == true:
-		#Reload the scene (should be a different solution later)
-		get_tree().reload_current_scene()
+		#Sends win condition, signal did not work for some reason
+		get_parent().get_parent().get_parent().get_parent().unload_game(true)
 	elif GameData.enemies_in_wave <= 0:
 		get_parent().get_parent().get_parent().start_next_wave()
-	
 	#Destroy the object on the next available frame
 	self.queue_free()
 

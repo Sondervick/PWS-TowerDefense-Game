@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bigsmlt56xydy"]
+
+[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_gk6ms"]
+[ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="2_1p8fg"]
+
+[node name="LoseScreen" type="Node2D"]
+
+[node name="BG" type="TextureRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_gk6ms")
+
+[node name="Margin" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 398.0
+offset_top = 403.0
+offset_right = 1522.0
+offset_bottom = 627.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="VBC" type="HBoxContainer" parent="Margin"]
+custom_minimum_size = Vector2(1024, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Label" type="Label" parent="Margin"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_1p8fg")
+theme_override_font_sizes/font_size = 52
+text = "You lost!!!! 
+UR SO BAD LMAO"
+horizontal_alignment = 1

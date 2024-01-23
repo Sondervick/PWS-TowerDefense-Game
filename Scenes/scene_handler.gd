@@ -20,7 +20,6 @@ func onLevelSelectPressed():
 	#All level specific logic will be saved in the levels themselves.
 	var game_scene = load("res://Scenes/GameScene.tscn").instantiate()
 	game_scene.connect("game_finished", unload_game)
-	#Add it to the tree of objects.
 	add_child(game_scene)
 
 func onQuit():
@@ -38,9 +37,12 @@ func onChangelog():
 func unload_game(result):
 	#Removes the gamescene node
 	get_node("GameScene").queue_free()
-	#loads the main menu
-	var main_menu = load("res://Scenes/UIScenes/main_menu.tscn").instantiate()
-	#Adds it to the scene handler
-	add_child(main_menu)
-	#initializes the buttons (main menu script)
-	load_main_menu()
+	var menu
+	if(result == true):
+		#Load win menu
+		menu = load("res://Scenes/UIScenes/WinScreen.tscn").instantiate()
+	elif(result == false):
+		menu = load("res://Scenes/UIScenes/LoseScreen.tscn").instantiate()
+	else:
+		menu = load("res://Scenes/UIScenes/main_menu.tscn").instantiate()
+	add_child(menu)
