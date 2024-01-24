@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://61500sv5tjin"]
 
-[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_ah0rr"]
-[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="2_mldj6"]
-[ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="3_kstto"]
+[ext_resource type="Texture2D" uid="uid://c612sokwt7s14" path="res://Assets/UI/Menu/Background.png" id="1_vnq0k"]
+[ext_resource type="Texture2D" uid="uid://crixv6oighnbu" path="res://Assets/UI/Menu/Button.png" id="2_xhqpd"]
+[ext_resource type="Texture2D" uid="uid://bfy0c1o64slij" path="res://Assets/UI/Menu/Button_pressed.png" id="3_05010"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_tlfqy"]
 
 [node name="MainMenu" type="Control"]
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ah0rr")
+texture = ExtResource("1_vnq0k")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -45,8 +45,8 @@ alignment = 1
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_mldj6")
-texture_pressed = ExtResource("3_kstto")
+texture_normal = ExtResource("2_xhqpd")
+texture_pressed = ExtResource("3_05010")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Margin/VBC/LevelSelect"]
@@ -67,8 +67,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_mldj6")
-texture_pressed = ExtResource("3_kstto")
+texture_normal = ExtResource("2_xhqpd")
+texture_pressed = ExtResource("3_05010")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Margin/VBC/Settings"]
@@ -89,8 +89,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_mldj6")
-texture_pressed = ExtResource("3_kstto")
+texture_normal = ExtResource("2_xhqpd")
+texture_pressed = ExtResource("3_05010")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Margin/VBC/Changelog"]
@@ -115,8 +115,8 @@ layout_mode = 2
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_mldj6")
-texture_pressed = ExtResource("3_kstto")
+texture_normal = ExtResource("2_xhqpd")
+texture_pressed = ExtResource("3_05010")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Margin/VBC/Quit"]

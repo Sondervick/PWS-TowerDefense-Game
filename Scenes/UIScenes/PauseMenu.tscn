@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://u62j7eocejad"]
 
 [ext_resource type="Script" path="res://Scenes/UIScenes/PauseMenu.gd" id="1_avefq"]
-[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_h6b6w"]
-[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="2_gbuf1"]
-[ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="3_xewgc"]
+[ext_resource type="Texture2D" uid="uid://c612sokwt7s14" path="res://Assets/UI/Menu/Background.png" id="2_b0t5l"]
+[ext_resource type="Texture2D" uid="uid://crixv6oighnbu" path="res://Assets/UI/Menu/Button.png" id="3_5122v"]
+[ext_resource type="Texture2D" uid="uid://bfy0c1o64slij" path="res://Assets/UI/Menu/Button_pressed.png" id="4_fifcm"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_jsp4q"]
 
 [node name="PauseMenu" type="Control"]
@@ -23,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_h6b6w")
+texture = ExtResource("2_b0t5l")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -49,8 +49,8 @@ alignment = 1
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_gbuf1")
-texture_pressed = ExtResource("3_xewgc")
+texture_normal = ExtResource("3_5122v")
+texture_pressed = ExtResource("4_fifcm")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Margin/VBC/Continue"]
@@ -71,8 +71,8 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_gbuf1")
-texture_pressed = ExtResource("3_xewgc")
+texture_normal = ExtResource("3_5122v")
+texture_pressed = ExtResource("4_fifcm")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Margin/VBC/MainMenu"]

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://cifr4t2atydot"]
 
-[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_hu0d0"]
-[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="2_uer4a"]
-[ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="3_kev6f"]
+[ext_resource type="Texture2D" uid="uid://c612sokwt7s14" path="res://Assets/UI/Menu/Background.png" id="1_we1oh"]
+[ext_resource type="Texture2D" uid="uid://crixv6oighnbu" path="res://Assets/UI/Menu/Button.png" id="3_3mb2h"]
+[ext_resource type="Texture2D" uid="uid://bfy0c1o64slij" path="res://Assets/UI/Menu/Button_pressed.png" id="4_by1u8"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_h0has"]
 
 [node name="LevelSelect" type="Control"]
@@ -20,7 +20,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_hu0d0")
+texture = ExtResource("1_we1oh")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -34,20 +34,23 @@ theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50
 theme_override_constants/margin_bottom = 50
 
-[node name="Level1VBC" type="VBoxContainer" parent="Margin"]
+[node name="Level1VBC" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
+offset_left = 20.0
+offset_right = 628.0
+offset_bottom = 980.0
 size_flags_horizontal = 0
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="Level1" type="TextureButton" parent="Margin/Level1VBC"]
+[node name="Level1" type="TextureButton" parent="Level1VBC"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Margin/Level1VBC/Level1"]
+[node name="Label" type="Label" parent="Level1VBC/Level1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -62,15 +65,15 @@ text = "LEVEL 1
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Normal1" type="TextureButton" parent="Margin/Level1VBC"]
+[node name="Normal1" type="TextureButton" parent="Level1VBC"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_uer4a")
-texture_pressed = ExtResource("3_kev6f")
+texture_normal = ExtResource("3_3mb2h")
+texture_pressed = ExtResource("4_by1u8")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Margin/Level1VBC/Normal1"]
+[node name="Label" type="Label" parent="Level1VBC/Normal1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -84,15 +87,15 @@ text = "NORMAL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Aim1" type="TextureButton" parent="Margin/Level1VBC"]
+[node name="Aim1" type="TextureButton" parent="Level1VBC"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_uer4a")
-texture_pressed = ExtResource("3_kev6f")
+texture_normal = ExtResource("3_3mb2h")
+texture_pressed = ExtResource("4_by1u8")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Margin/Level1VBC/Aim1"]
+[node name="Label" type="Label" parent="Level1VBC/Aim1"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -106,19 +109,19 @@ text = "MANUAL AIM"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DIV" type="Control" parent="Margin/Level1VBC"]
+[node name="DIV" type="Control" parent="Level1VBC"]
 custom_minimum_size = Vector2(0, 69)
 layout_mode = 2
 
-[node name="Back" type="TextureButton" parent="Margin/Level1VBC"]
+[node name="Back" type="TextureButton" parent="Level1VBC"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_uer4a")
-texture_pressed = ExtResource("3_kev6f")
+texture_normal = ExtResource("3_3mb2h")
+texture_pressed = ExtResource("4_by1u8")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Margin/Level1VBC/Back"]
+[node name="Label" type="Label" parent="Level1VBC/Back"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -132,20 +135,23 @@ text = "BACK"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Level2VBC" type="VBoxContainer" parent="Margin"]
+[node name="Level2VBC" type="VBoxContainer" parent="."]
 custom_minimum_size = Vector2(512, 0)
 layout_mode = 2
+offset_left = 660.0
+offset_right = 1268.0
+offset_bottom = 980.0
 size_flags_horizontal = 4
 theme_override_constants/separation = 45
 alignment = 1
 
-[node name="Level2" type="TextureButton" parent="Margin/Level2VBC"]
+[node name="Level2" type="TextureButton" parent="Level2VBC"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Margin/Level2VBC/Level2"]
+[node name="Label" type="Label" parent="Level2VBC/Level2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -160,15 +166,15 @@ text = "LEVEL 2
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Normal2" type="TextureButton" parent="Margin/Level2VBC"]
+[node name="Normal2" type="TextureButton" parent="Level2VBC"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_uer4a")
-texture_pressed = ExtResource("3_kev6f")
+texture_normal = ExtResource("3_3mb2h")
+texture_pressed = ExtResource("4_by1u8")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Margin/Level2VBC/Normal2"]
+[node name="Label" type="Label" parent="Level2VBC/Normal2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -182,15 +188,15 @@ text = "NORMAL"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Aim2" type="TextureButton" parent="Margin/Level2VBC"]
+[node name="Aim2" type="TextureButton" parent="Level2VBC"]
 custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-texture_normal = ExtResource("2_uer4a")
-texture_pressed = ExtResource("3_kev6f")
+texture_normal = ExtResource("3_3mb2h")
+texture_pressed = ExtResource("4_by1u8")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="Margin/Level2VBC/Aim2"]
+[node name="Label" type="Label" parent="Level2VBC/Aim2"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -204,6 +210,85 @@ text = "MANUAL AIM"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="DIV" type="Control" parent="Margin/Level2VBC"]
+[node name="DIV" type="Control" parent="Level2VBC"]
+custom_minimum_size = Vector2(0, 240)
+layout_mode = 2
+
+[node name="Level3VBC" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(512, 0)
+layout_mode = 2
+offset_left = 1300.0
+offset_right = 1908.0
+offset_bottom = 980.0
+size_flags_horizontal = 4
+theme_override_constants/separation = 45
+alignment = 1
+
+[node name="Level3" type="TextureButton" parent="Level3VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Level3VBC/Level3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "LEVEL 2
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Normal3" type="TextureButton" parent="Level3VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("3_3mb2h")
+texture_pressed = ExtResource("4_by1u8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Level3VBC/Normal3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "NORMAL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Aim3" type="TextureButton" parent="Level3VBC"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("3_3mb2h")
+texture_pressed = ExtResource("4_by1u8")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="Level3VBC/Aim3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("4_h0has")
+theme_override_font_sizes/font_size = 52
+text = "MANUAL AIM"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DIV" type="Control" parent="Level3VBC"]
 custom_minimum_size = Vector2(0, 240)
 layout_mode = 2

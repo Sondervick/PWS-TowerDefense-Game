@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://bdewcnqtkfwsf"]
 
 [ext_resource type="Script" path="res://Scenes/UIScenes/TowerUpgrade.gd" id="1_i67xv"]
-[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_no00y"]
 [ext_resource type="Texture2D" uid="uid://cmmovymas2l05" path="res://Assets/UI/Menu/red_cross.png" id="2_8tvn2"]
+[ext_resource type="Texture2D" uid="uid://c612sokwt7s14" path="res://Assets/UI/Menu/Background.png" id="2_x1div"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="3_sf6ww"]
-[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="4_f0i1k"]
-[ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="5_fq10s"]
+[ext_resource type="Texture2D" uid="uid://dmwjf4qpksp1s" path="res://Assets/UI/Menu/Button_small.png" id="4_tnhtu"]
+[ext_resource type="Texture2D" uid="uid://bied8mce1on2u" path="res://Assets/UI/Menu/Button_pressed_small.png" id="5_h4hvi"]
 
 [node name="TowerUpgrade" type="Control"]
 layout_mode = 3
@@ -27,7 +27,7 @@ anchor_bottom = 1.0
 offset_top = -1020.0
 offset_right = 256.0
 grow_vertical = 0
-texture = ExtResource("1_no00y")
+texture = ExtResource("2_x1div")
 expand_mode = 1
 
 [node name="Margin" type="MarginContainer" parent="."]
@@ -77,18 +77,18 @@ theme_override_fonts/font = ExtResource("3_sf6ww")
 theme_override_font_sizes/font_size = 20
 text = "Range"
 
-[node name="Control" type="Control" parent="Margin/VBC-Labels"]
-custom_minimum_size = Vector2(0, 256)
+[node name="VBC-Buttons" type="VBoxContainer" parent="Margin"]
 layout_mode = 2
+size_flags_vertical = 8
 
-[node name="UpgradeButton" type="TextureButton" parent="Margin/VBC-Labels"]
+[node name="UpgradeButton" type="TextureButton" parent="Margin/VBC-Buttons"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
 size_flags_horizontal = 4
-texture_normal = ExtResource("4_f0i1k")
-texture_pressed = ExtResource("5_fq10s")
+texture_normal = ExtResource("4_tnhtu")
+texture_pressed = ExtResource("5_h4hvi")
 
-[node name="UpgradeLabel" type="Label" parent="Margin/VBC-Labels/UpgradeButton"]
+[node name="UpgradeLabel" type="Label" parent="Margin/VBC-Buttons/UpgradeButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -106,15 +106,15 @@ theme_override_fonts/font = ExtResource("3_sf6ww")
 theme_override_font_sizes/font_size = 20
 text = "UPGRADE"
 
-[node name="VBC-Buttons" type="VBoxContainer" parent="Margin"]
+[node name="Control" type="Control" parent="Margin/VBC-Buttons"]
+custom_minimum_size = Vector2(0, 256)
 layout_mode = 2
-size_flags_vertical = 8
 
 [node name="SellButton" type="TextureButton" parent="Margin/VBC-Buttons"]
 custom_minimum_size = Vector2(0, 25)
 layout_mode = 2
-texture_normal = ExtResource("4_f0i1k")
-texture_pressed = ExtResource("5_fq10s")
+texture_normal = ExtResource("4_tnhtu")
+texture_pressed = ExtResource("5_h4hvi")
 
 [node name="SellLabel" type="Label" parent="Margin/VBC-Buttons/SellButton"]
 layout_mode = 1
@@ -151,6 +151,6 @@ stretch_mode = 0
 custom_minimum_size = Vector2(0, 30)
 layout_mode = 2
 
-[connection signal="pressed" from="Margin/VBC-Labels/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
+[connection signal="pressed" from="Margin/VBC-Buttons/UpgradeButton" to="." method="_on_upgrade_button_pressed"]
 [connection signal="pressed" from="Margin/VBC-Buttons/SellButton" to="." method="_on_sell_button_pressed"]
 [connection signal="pressed" from="Margin/VBC-Buttons/Close" to="." method="_on_close_pressed"]
