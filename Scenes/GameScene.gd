@@ -29,11 +29,11 @@ func _ready():
 	#Gets the Normal1 node, hidden in the Level Select menu
 	#Gets when the button gets pressed .pressed.connect()
 	#Runs the "onLevelOneNormal" function inside this script .connect(onLevelSelectPressed)
-	get_node("UI/LevelSelect/Margin/Level1VBC/Normal1").pressed.connect(onLevelNormal.bind(1))
-	get_node("UI/LevelSelect/Margin/Level1VBC/Aim1").pressed.connect(onLevelAim.bind(1))
-	get_node("UI/LevelSelect/Margin/Level2VBC/Normal2").pressed.connect(onLevelNormal.bind(2))
-	get_node("UI/LevelSelect/Margin/Level2VBC/Aim2").pressed.connect(onLevelAim.bind(2))
-	get_node("UI/LevelSelect/Margin/Level1VBC/Back").pressed.connect(onBack)
+	get_node("UI/LevelSelect/Level1VBC/Normal1").pressed.connect(onLevelNormal.bind(1))
+	get_node("UI/LevelSelect/Level1VBC/Aim1").pressed.connect(onLevelAim.bind(1))
+	get_node("UI/LevelSelect/Level2VBC/Normal2").pressed.connect(onLevelNormal.bind(2))
+	get_node("UI/LevelSelect/Level2VBC/Aim2").pressed.connect(onLevelAim.bind(2))
+	get_node("UI/LevelSelect/Level1VBC/Back").pressed.connect(onBack)
 	get_node("UI/HUD/InfoBar/HBoxContainer/Wave").set_text("Wave: " + str(GameData.current_wave) + "/" + str(GameData.wave_data.keys()[-1]))
 	
 	GameData.money = start_money
