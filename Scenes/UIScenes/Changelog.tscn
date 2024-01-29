@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://bemv1hb1pw5x6"]
+[gd_scene load_steps=7 format=3 uid="uid://bemv1hb1pw5x6"]
 
-[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_ae633"]
 [ext_resource type="Script" path="res://Scenes/UIScenes/Changelog.gd" id="1_wptyh"]
-[ext_resource type="Texture2D" uid="uid://ds3vslk1bs1wl" path="res://Assets/UI/Buttons/blue_button03.png" id="2_j7rn0"]
+[ext_resource type="Texture2D" uid="uid://c612sokwt7s14" path="res://Assets/UI/Menu/Background.png" id="2_q5otf"]
 [ext_resource type="Texture2D" uid="uid://c13a14crm6jq2" path="res://Assets/UI/Buttons/blue_button05.png" id="3_j1xqj"]
+[ext_resource type="Texture2D" uid="uid://crixv6oighnbu" path="res://Assets/UI/Menu/Button.png" id="3_wnagd"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_d3ogv"]
+[ext_resource type="Texture2D" uid="uid://bfy0c1o64slij" path="res://Assets/UI/Menu/Button_pressed.png" id="6_dgiwt"]
 
 [node name="Changelog" type="Control"]
 layout_mode = 3
@@ -22,7 +23,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_ae633")
+texture = ExtResource("2_q5otf")
 
 [node name="Margin" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -46,7 +47,7 @@ custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
-texture_normal = ExtResource("2_j7rn0")
+texture_normal = ExtResource("3_wnagd")
 texture_pressed = ExtResource("3_j1xqj")
 stretch_mode = 0
 
@@ -69,8 +70,8 @@ custom_minimum_size = Vector2(512, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture_normal = ExtResource("2_j7rn0")
-texture_pressed = ExtResource("3_j1xqj")
+texture_normal = ExtResource("3_wnagd")
+texture_pressed = ExtResource("6_dgiwt")
 stretch_mode = 0
 
 [node name="Label" type="Label" parent="Margin/HBC/BugReport"]
@@ -106,6 +107,9 @@ text = "V1.2.1-ALPHA:
 
 Additions:
 - Added range indicator to upgrade menu
+
+Changes:
+- edited game ui
 
 Bug fixes:
 - Map 2 is no longer a black screen (sten + null)
@@ -150,7 +154,7 @@ Changes:
 
 BUG FIXES:
 - When the enemy leaves the map, no longer grant money (Sten)
-- Crashes when spamming buy enemy (sten)
+- Crashes when spamming buy tower (sten)
 - Tower cooldown is also paused when game is paused (sten)
 
 

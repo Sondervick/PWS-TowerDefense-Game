@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://bqu6vu1nrs30b"]
+[gd_scene load_steps=6 format=3 uid="uid://bqu6vu1nrs30b"]
 
-[ext_resource type="Texture2D" uid="uid://baholcpylc6vw" path="res://Assets/UI/Art/BackGround.png" id="1_rqlso"]
+[ext_resource type="Script" path="res://Scenes/UIScenes/WinScreen.gd" id="1_nliqc"]
+[ext_resource type="Texture2D" uid="uid://c612sokwt7s14" path="res://Assets/UI/Menu/Background.png" id="2_0xbuj"]
 [ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="2_wmqo1"]
+[ext_resource type="Texture2D" uid="uid://crixv6oighnbu" path="res://Assets/UI/Menu/Button.png" id="3_g2ncd"]
+[ext_resource type="Texture2D" uid="uid://bfy0c1o64slij" path="res://Assets/UI/Menu/Button_pressed.png" id="4_naq3p"]
 
 [node name="WinScreen" type="Node2D"]
+script = ExtResource("1_nliqc")
 
 [node name="BG" type="TextureRect" parent="."]
 anchors_preset = 15
@@ -13,34 +17,103 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_rqlso")
+texture = ExtResource("2_0xbuj")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Main_menu" type="TextureButton" parent="BG"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 2
+offset_left = 160.0
+offset_top = 640.0
+offset_right = 768.0
+offset_bottom = 784.0
+size_flags_horizontal = 0
+texture_normal = ExtResource("3_g2ncd")
+texture_pressed = ExtResource("4_naq3p")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="BG/Main_menu"]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 394.0
-offset_top = 456.0
-offset_right = 1518.0
-offset_bottom = 618.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
-theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
-
-[node name="VBC" type="HBoxContainer" parent="Margin"]
-custom_minimum_size = Vector2(1024, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 4
-theme_override_constants/separation = 45
-alignment = 1
-
-[node name="Label" type="Label" parent="Margin"]
-layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
 theme_override_fonts/font = ExtResource("2_wmqo1")
 theme_override_font_sizes/font_size = 52
-text = "You won!!!! WOWIEEEEE"
+text = "Main menu"
 horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BG/Main_menu/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("2_wmqo1")
+theme_override_font_sizes/font_size = 52
+text = "Return to main
+menu"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LevelSelect" type="TextureButton" parent="BG"]
+custom_minimum_size = Vector2(512, 128)
+layout_mode = 0
+offset_left = 1150.0
+offset_top = 640.0
+offset_right = 1758.0
+offset_bottom = 784.0
+size_flags_horizontal = 0
+texture_normal = ExtResource("3_g2ncd")
+texture_pressed = ExtResource("4_naq3p")
+stretch_mode = 0
+
+[node name="Label" type="Label" parent="BG/LevelSelect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("2_wmqo1")
+theme_override_font_sizes/font_size = 52
+text = "SELECT LEVEL"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="BG/LevelSelect/Label"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -160.0
+offset_bottom = -160.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.870588)
+theme_override_fonts/font = ExtResource("2_wmqo1")
+theme_override_font_sizes/font_size = 52
+text = "return to 
+level select"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 160.0
+offset_top = 200.0
+offset_right = 1760.0
+offset_bottom = 316.0
+theme_override_fonts/font = ExtResource("2_wmqo1")
+theme_override_font_sizes/font_size = 100
+text = "congratulations You won"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="BG/Main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="BG/LevelSelect" to="." method="_on_level_select_pressed"]

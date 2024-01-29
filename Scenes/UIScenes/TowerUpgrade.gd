@@ -39,10 +39,10 @@ func _ready():
 	tower_node.get_node("RangeTexture").visible = true
 	
 	if upgrade == "none":
-		get_node("Margin/VBC-Labels/UpgradeButton").disabled = true
-		get_node("Margin/VBC-Labels/UpgradeButton/UpgradeLabel").set_text("Max Upgrade")
+		get_node("Margin/VBC-Buttons/UpgradeButton").disabled = true
+		get_node("Margin/VBC-Buttons/UpgradeButton/UpgradeLabel").set_text("Max Upgrade")
 	else:
-		get_node("Margin/VBC-Labels/UpgradeButton/UpgradeLabel").set_text("Upgrade (" + str(money_upgrade) + ")")
+		get_node("Margin/VBC-Buttons/UpgradeButton/UpgradeLabel").set_text("Upgrade (" + str(money_upgrade) + ")")
 
 func _on_close_pressed():
 	GameData.upgrade_menu_open = false
