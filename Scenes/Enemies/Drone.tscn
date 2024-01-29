@@ -1,22 +1,22 @@
 [gd_scene load_steps=6 format=3 uid="uid://cro7fr7rs1521"]
 
-[ext_resource type="Script" path="res://Scenes/Enemies/OrangeTree.gd" id="1_km3tm"]
-[ext_resource type="Texture2D" uid="uid://cj50ew43ha6ru" path="res://Assets/Enviroment/Props/treeBrown_large.png" id="2_i86fl"]
-[ext_resource type="Texture2D" uid="uid://d255kke4hn08s" path="res://Assets/UI/Art/HPbar.jpg" id="3_desf3"]
-[ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_w6v2b"]
+[ext_resource type="Script" path="res://Scenes/Enemies/Drone.gd" id="1_twjjs"]
+[ext_resource type="Texture2D" uid="uid://bs2yhd6fijhjo" path="res://Assets/Enemies/SpriteDrone.png" id="2_tb4ba"]
+[ext_resource type="Texture2D" uid="uid://d255kke4hn08s" path="res://Assets/UI/Art/HPbar.jpg" id="3_6eq0c"]
+[ext_resource type="FontFile" uid="uid://cmvhle8a2rai2" path="res://Assets/Fonts/Kenney Future Narrow.ttf" id="4_qi8xm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfclw"]
 size = Vector2(29, 30)
 
 [node name="OrangeTree" type="PathFollow2D" groups=["enemy"]]
 loop = false
-script = ExtResource("1_km3tm")
+script = ExtResource("1_twjjs")
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D"]
-scale = Vector2(0.613281, 0.613281)
-texture = ExtResource("2_i86fl")
+rotation = 1.5708
+texture = ExtResource("2_tb4ba")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
 position = Vector2(-0.5, 0)
@@ -29,8 +29,8 @@ offset_right = 30.0
 offset_bottom = -20.0
 value = 50.0
 nine_patch_stretch = true
-texture_under = ExtResource("3_desf3")
-texture_progress = ExtResource("3_desf3")
+texture_under = ExtResource("3_6eq0c")
+texture_progress = ExtResource("3_6eq0c")
 tint_under = Color(0.4, 0.4, 0.4, 1)
 tint_progress = Color(0.0196078, 0.67451, 0, 1)
 
@@ -45,7 +45,7 @@ offset_top = -7.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_fonts/font = ExtResource("4_w6v2b")
+theme_override_fonts/font = ExtResource("4_qi8xm")
 text = "2"
 horizontal_alignment = 1
 vertical_alignment = 1

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cxmx6gksweuha"
-path="res://.godot/imported/towerDefense_tile250.png-68ed6b4ef6a21b0d9877cf13fc7d88c1.ctex"
+uid="uid://bs2yhd6fijhjo"
+path="res://.godot/imported/SpriteDrone.png-eaac50dc7bcb2556da824eef53639180.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Towers/towerDefense_tile250.png"
-dest_files=["res://.godot/imported/towerDefense_tile250.png-68ed6b4ef6a21b0d9877cf13fc7d88c1.ctex"]
+source_file="res://Assets/Enemies/SpriteDrone.png"
+dest_files=["res://.godot/imported/SpriteDrone.png-eaac50dc7bcb2556da824eef53639180.ctex"]
 
 [params]
 

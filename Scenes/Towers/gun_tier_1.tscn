@@ -1,8 +1,8 @@
 [gd_scene load_steps=9 format=3 uid="uid://drqt5vmat5t71"]
 
 [ext_resource type="Script" path="res://Scenes/Towers/gun_tier_1.gd" id="1_u581d"]
-[ext_resource type="Texture2D" uid="uid://g2te8uh72rr4" path="res://Assets/Towers/towerDefense_tile181.png" id="2_e1pvt"]
-[ext_resource type="Texture2D" uid="uid://c3157da4uwt4m" path="res://Assets/Towers/towerDefense_tile249.png" id="3_sygei"]
+[ext_resource type="Texture2D" uid="uid://dt0fhwg7iwabt" path="res://Assets/Towers/TurretBase1.png" id="2_l8t1l"]
+[ext_resource type="Texture2D" uid="uid://cexx3dre7d3q8" path="res://Assets/Towers/Turret1.png" id="3_4mp2p"]
 [ext_resource type="Texture2D" uid="uid://lgaovtblnde3" path="res://Assets/Effects/towerDefense_tile297.png" id="4_le5g1"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i5n0h"]
@@ -73,10 +73,10 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_i5n0h")
 flat = true
 
 [node name="Base" type="Sprite2D" parent="."]
-texture = ExtResource("2_e1pvt")
+texture = ExtResource("2_l8t1l")
 
 [node name="Turret" type="Sprite2D" parent="."]
-texture = ExtResource("3_sygei")
+texture = ExtResource("3_4mp2p")
 offset = Vector2(12, 0)
 
 [node name="Muzzle" type="Marker2D" parent="Turret"]

@@ -44,13 +44,13 @@ var enemy_data = {
 		"health": 40,
 		"money_earned": 15
 	}, 
-	"GreenTree": {
+	"Tank": {
 		"speed": 150,
 		"damage": 25,
 		"health": 150,
 		"money_earned": 20
 	},
-	"OrangeTree": {
+	"Drone": {
 		"speed": 100,
 		"damage": 10,
 		"health": 100,
@@ -61,11 +61,11 @@ var enemy_data = {
 #All the seperate waves
 var wave_data = {
 	1: {
-		"wave_data" = [["EnemySexyMf", 0.7], ["GreenTree", 0.3], ["OrangeTree", 0.4], ["EnemySexyMf", 0.2], ["OrangeTree", 0.1]],
+		"wave_data" = [["EnemySexyMf", 0.7], ["Tank", 0.3], ["Drone", 0.4], ["EnemySexyMf", 0.2], ["Drone", 0.1]],
 		"last_wave" = false
 	},
 	2: {
-		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.5], ["OrangeTree", 0.3], ["GreenTree", 0.1], ["OrangeTree", 0.3], ["EnemySexyMf", 0.3], ["GreenTree", 0.3], ["GreenTree", 0.5]],
+		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.5], ["Drone", 0.3], ["Tank", 0.1], ["Drone", 0.3], ["EnemySexyMf", 0.3], ["Tank", 0.3], ["Tank", 0.5]],
 		"last_wave" = false
 	},
 	3: {
@@ -73,11 +73,11 @@ var wave_data = {
 		"last_wave" = false
 	},
 	4: {
-		"wave_data" = [["GreenTree", 0.6], ["EnemySexyMf", 0.5], ["OrangeTree", 0.3], ["OrangeTree", 0.2], ["GreenTree", 0.3], ["EnemySexyMf", 0.3]],
+		"wave_data" = [["Tank", 0.6], ["EnemySexyMf", 0.5], ["Drone", 0.3], ["Drone", 0.2], ["Tank", 0.3], ["EnemySexyMf", 0.3]],
 		"last_wave" = false
 	},
 	5: {
-		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.1], ["OrangeTree", 0.5], ["GreenTree", 0.2], ["EnemySexyMf", 0.3], ["GreenTree", 0.4], ["OrangeTree", 0.2], ["GreenTree", 0.4], ["GreenTree", 0.6], ["OrangeTree", 0.2], ["EnemySexyMf", 0.3]],
+		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.1], ["Drone", 0.5], ["Tank", 0.2], ["EnemySexyMf", 0.3], ["Tank", 0.4], ["Drone", 0.2], ["Tank", 0.4], ["Tank", 0.6], ["Drone", 0.2], ["EnemySexyMf", 0.3]],
 		"last_wave" = true
 	}
 }

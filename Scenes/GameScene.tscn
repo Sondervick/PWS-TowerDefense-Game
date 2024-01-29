@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cifr4t2atydot" path="res://Scenes/UIScenes/LevelSelect.tscn" id="2_vwkla"]
 [ext_resource type="Script" path="res://Scenes/UI.gd" id="3_7xx70"]
 [ext_resource type="Texture2D" uid="uid://bh8rs8o7ylcti" path="res://Assets/UI/Buttons/blue_button12.png" id="3_66iv5"]
-[ext_resource type="Texture2D" uid="uid://c3157da4uwt4m" path="res://Assets/Towers/towerDefense_tile249.png" id="4_scrtf"]
+[ext_resource type="Texture2D" uid="uid://cexx3dre7d3q8" path="res://Assets/Towers/Turret1.png" id="5_d75gm"]
 [ext_resource type="Texture2D" uid="uid://c1rcipllvpvot" path="res://Assets/Towers/towerDefense_tile251.png" id="5_x8c8l"]
 [ext_resource type="Texture2D" uid="uid://bgyoeaxblchia" path="res://Assets/UI/Menu/play.png" id="7_x0hlq"]
 [ext_resource type="Texture2D" uid="uid://bpelxpdafuj8v" path="res://Assets/UI/Menu/pause.png" id="8_arcmb"]
@@ -63,7 +63,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("4_scrtf")
+texture = ExtResource("5_d75gm")
 
 [node name="Gun1Price" type="Label" parent="UI/HUD/BuildMenu"]
 layout_mode = 2
