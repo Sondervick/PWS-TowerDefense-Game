@@ -48,36 +48,36 @@ var enemy_data = {
 		"speed": 150,
 		"damage": 25,
 		"health": 150,
-		"money_earned": 20
+		"money_earned": 35
 	},
 	"Drone": {
 		"speed": 100,
 		"damage": 10,
 		"health": 100,
-		"money_earned": 10
+		"money_earned": 15
 	} 
 }
 
 #All the seperate waves
 var wave_data = {
 	1: {
-		"wave_data" = [["EnemySexyMf", 0.7], ["Tank", 0.3], ["Drone", 0.4], ["EnemySexyMf", 0.2], ["Drone", 0.1]],
+		"wave_data" = [["Tank", 0.7], ["Tank", 0.3], ["Drone", 0.4], ["Tank", 0.2], ["Drone", 0.1]],
 		"last_wave" = false
 	},
 	2: {
-		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.5], ["Drone", 0.3], ["Tank", 0.1], ["Drone", 0.3], ["EnemySexyMf", 0.3], ["Tank", 0.3], ["Tank", 0.5]],
+		"wave_data" = [["Tank", 0.2], ["Tank", 0.5], ["Drone", 0.3], ["Tank", 0.1], ["Drone", 0.3], ["Tank", 0.3], ["Tank", 0.3], ["Tank", 0.5]],
 		"last_wave" = false
 	},
 	3: {
-		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2], ["EnemySexyMf", 0.2]],
+		"wave_data" = [["Tank", 0.2], ["Tank", 0.2], ["Tank", 0.2], ["Tank", 0.2], ["Tank", 0.2], ["Tank", 0.2], ["Tank", 0.2], ["Tank", 0.2]],
 		"last_wave" = false
 	},
 	4: {
-		"wave_data" = [["Tank", 0.6], ["EnemySexyMf", 0.5], ["Drone", 0.3], ["Drone", 0.2], ["Tank", 0.3], ["EnemySexyMf", 0.3]],
+		"wave_data" = [["Tank", 0.6], ["Tank", 0.5], ["Drone", 0.3], ["Drone", 0.2], ["Tank", 0.3], ["Tank", 0.3]],
 		"last_wave" = false
 	},
 	5: {
-		"wave_data" = [["EnemySexyMf", 0.2], ["EnemySexyMf", 0.1], ["Drone", 0.5], ["Tank", 0.2], ["EnemySexyMf", 0.3], ["Tank", 0.4], ["Drone", 0.2], ["Tank", 0.4], ["Tank", 0.6], ["Drone", 0.2], ["EnemySexyMf", 0.3]],
+		"wave_data" = [["Tank", 0.2], ["Tank", 0.1], ["Drone", 0.5], ["Tank", 0.2], ["Tank", 0.3], ["Tank", 0.4], ["Drone", 0.2], ["Tank", 0.4], ["Tank", 0.6], ["Drone", 0.2], ["Tank", 0.3]],
 		"last_wave" = true
 	}
 }

@@ -103,7 +103,7 @@ layout_mode = 2
 size_flags_vertical = 0
 theme_override_fonts/font = ExtResource("4_d3ogv")
 theme_override_font_sizes/font_size = 48
-text = "V1.2.1-ALPHA:
+text = "RELEASE 1.0:
 
 Additions:
 - Added range indicator to upgrade menu
@@ -112,8 +112,8 @@ Changes:
 - edited game ui
 
 Bug fixes:
-- Map 2 is no longer a black screen (sten + null)
-- Wave counter restarts (null)
+- Map 2 is no longer a black screen (sten)
+- Wave counter restarts (sten)
 - Game no longer crashes when pausing with space & unpausing with escape (beau)
 
 
