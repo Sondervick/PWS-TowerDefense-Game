@@ -11,7 +11,7 @@ var build_location
 var build_type
 
 var base_health = 200
-var start_money = 10000
+var start_money = 100
 
 var current_wave = 0
 var enemies_in_wave = 0

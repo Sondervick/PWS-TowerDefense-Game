@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://m6nnyk6knyv7"]
+[gd_scene load_steps=6 format=3 uid="uid://m6nnyk6knyv7"]
 
 [ext_resource type="Script" path="res://Scenes/Towers/missile_tier_1.gd" id="1_ddesl"]
-[ext_resource type="Texture2D" uid="uid://xav615l77pm7" path="res://Assets/Towers/towerDefense_tile180.png" id="1_urp8q"]
-[ext_resource type="Texture2D" uid="uid://c26te5pj4eeoh" path="res://Assets/Towers/towerDefense_tile228.png" id="2_xvxaq"]
+[ext_resource type="Texture2D" uid="uid://dt0fhwg7iwabt" path="res://Assets/Towers/TurretBase1.png" id="2_0whw6"]
 [ext_resource type="Texture2D" uid="uid://c1rcipllvpvot" path="res://Assets/Towers/towerDefense_tile251.png" id="3_m2c1i"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h8udk"]
@@ -27,10 +26,9 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_h8udk")
 flat = true
 
 [node name="Base" type="Sprite2D" parent="."]
-texture = ExtResource("1_urp8q")
+texture = ExtResource("2_0whw6")
 
 [node name="Turret" type="Sprite2D" parent="."]
-texture = ExtResource("2_xvxaq")
 
 [node name="Missile1" type="Sprite2D" parent="Turret"]
 texture = ExtResource("3_m2c1i")
