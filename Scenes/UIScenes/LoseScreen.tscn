@@ -64,6 +64,7 @@ vertical_alignment = 1
 
 [node name="LevelSelect" type="TextureButton" parent="BG"]
 custom_minimum_size = Vector2(512, 128)
+layout_mode = 0
 offset_left = 1150.0
 offset_top = 640.0
 offset_right = 1758.0
